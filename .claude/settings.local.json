@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Skill(claude-api)",
+      "Bash(gunzip -c /Users/yz/.claude/projects/-Users-yz-claude-projects-pace/591a1b15-7d20-4d56-b6d6-c331429b3ea3/tool-results/webfetch-1781205747705-3f4t35.bin)",
+      "Bash(tar -x -C /tmp/pace-design)",
+      "Read(//tmp/**)",
+      "Bash(npx create-next-app@latest . --yes --typescript --tailwind --eslint --app --no-src-dir --import-alias \"@/*\")"
+    ]
+  }
+}
