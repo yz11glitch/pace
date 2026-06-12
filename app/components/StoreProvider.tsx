@@ -35,14 +35,15 @@ export const useStore = () => useContext(Ctx)!;
 function load<T>(key: string, fallback: T): T {
   if (typeof window === 'undefined') return fallback;
   try {
-    const raw = localStorage.getItem(key);
+    const raw = window.localStorage.getItem(key);
     if (raw == null) return fallback;
     return JSON.parse(raw) as T;
   } catch { return fallback; }
 }
 
 function save(key: string, val: unknown) {
-  try { localStorage.setItem(key, JSON.stringify(val)); } catch {}
+  if (typeof window === 'undefined') return;
+  try { window.localStorage.setItem(key, JSON.stringify(val)); } catch {}
 }
 
 const subscribeToHydration = () => () => {};
