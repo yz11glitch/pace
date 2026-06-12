@@ -493,6 +493,39 @@ input[type=number] { -moz-appearance: textfield; }
   border: 0; color: var(--ink); font-size: 14px; font-weight: 700;
   font-variant-numeric: tabular-nums; outline: none;
 }
+.install-card {
+  display: grid; grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center; gap: 11px; padding: 14px;
+  background: var(--card); border-radius: 20px; box-shadow: var(--shadow);
+}
+.install-card-icon { background: var(--green-soft); color: var(--green); }
+.install-card-copy { min-width: 0; }
+.install-card-title { font-size: 14.5px; font-weight: 700; color: var(--ink); }
+.install-card-body {
+  margin-top: 2px; font-size: 12.5px; font-weight: 500;
+  line-height: 1.35; color: var(--ink-2);
+}
+.install-card-action {
+  padding: 8px 10px; border-radius: 10px;
+  background: var(--green-soft); color: var(--green);
+  font-size: 12px; font-weight: 800; white-space: nowrap;
+}
+.install-sheet { max-height: 72dvh; }
+.install-sheet-header { padding: 0 20px 10px; flex-shrink: 0; }
+.install-sheet-body { display: flex; flex-direction: column; gap: 14px; padding-bottom: 8px; }
+.install-platform-title { font-size: 14.5px; font-weight: 800; color: var(--ink); }
+.install-platform-badge {
+  padding: 3px 7px; border-radius: 99px;
+  background: var(--green-soft); color: var(--green);
+  font-size: 10.5px; font-weight: 800;
+}
+.install-steps {
+  margin: 10px 0 0; padding-left: 24px;
+  color: var(--ink-2); font-size: 14px; font-weight: 600; line-height: 1.65;
+}
+.install-steps li { padding-left: 4px; }
+.install-steps li::marker { color: var(--green); font-weight: 800; }
+.install-divider { height: 1px; margin-top: 14px; background: var(--hair-2); }
 
 /* toggle */
 .toggle { width: 46px; height: 28px; border-radius: 99px; background: var(--hair); position: relative; transition: background .25s; flex-shrink: 0; cursor: pointer; }
@@ -533,4 +566,6 @@ input[type=number] { -moz-appearance: textfield; }
   .monthly-plan { padding: 15px 14px; }
   .monthly-plan-item { padding: 0 7px; }
   .monthly-plan-value { font-size: 16px; }
+  .install-card { grid-template-columns: auto minmax(0, 1fr); }
+  .install-card-action { grid-column: 2; justify-self: start; }
 }

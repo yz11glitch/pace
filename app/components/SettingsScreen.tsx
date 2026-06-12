@@ -1,10 +1,150 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Icon from './Icon';
 import { Toggle, SectionHeader } from './shared';
 import { useStore } from './StoreProvider';
 import { CATEGORIES } from '../lib/data';
+
+type MobilePlatform = 'ios' | 'android' | 'other';
+
+interface NavigatorWithStandalone extends Navigator {
+  standalone?: boolean;
+}
+
+const INSTALL_INSTRUCTIONS = {
+  ios: {
+    title: 'iPhone / iPad',
+    steps: [
+      'Open Pace in Safari',
+      'Tap the Share button',
+      'Tap Add to Home Screen',
+    ],
+  },
+  android: {
+    title: 'Android',
+    steps: [
+      'Open Pace in Chrome',
+      'Tap the menu button',
+      'Tap Install app or Add to Home screen',
+    ],
+  },
+} as const;
+
+function InstallPace() {
+  const [platform, setPlatform] = useState<MobilePlatform>('other');
+  const [installed, setInstalled] = useState<boolean | null>(null);
+  const [guideOpen, setGuideOpen] = useState(false);
+
+  useEffect(() => {
+    const timer = window.setTimeout(() => {
+      const userAgent = navigator.userAgent;
+      const isIPadOS = /Macintosh/.test(userAgent) && navigator.maxTouchPoints > 1;
+      const isIOS = /iPad|iPhone|iPod/.test(userAgent) || isIPadOS;
+      const isAndroid = /Android/i.test(userAgent);
+      const navigatorStandalone = (navigator as NavigatorWithStandalone).standalone === true;
+
+      setPlatform(isIOS ? 'ios' : isAndroid ? 'android' : 'other');
+      setInstalled(
+        window.matchMedia('(display-mode: standalone)').matches || navigatorStandalone,
+      );
+    }, 0);
+
+    return () => window.clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
+    if (!guideOpen) return;
+
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setGuideOpen(false);
+    };
+
+    window.addEventListener('keydown', closeOnEscape);
+    return () => window.removeEventListener('keydown', closeOnEscape);
+  }, [guideOpen]);
+
+  if (installed === null) return null;
+
+  const instructionOrder: Array<'ios' | 'android'> = platform === 'android'
+    ? ['android', 'ios']
+    : ['ios', 'android'];
+
+  return (
+    <>
+      <div className="install-card">
+        <div className="set-ico install-card-icon">
+          <Icon name={installed ? 'check' : 'home'} size={18} sw={2} />
+        </div>
+        <div className="install-card-copy">
+          <div className="install-card-title">
+            {installed ? 'Pace is installed' : 'Install Pace'}
+          </div>
+          <div className="install-card-body">
+            {installed
+              ? 'Pace is ready to use from your Home Screen.'
+              : 'Add Pace to your Home Screen for a more app-like experience.'}
+          </div>
+        </div>
+        {!installed && (
+          <button
+            type="button"
+            className="install-card-action press"
+            onClick={() => setGuideOpen(true)}
+          >
+            How to install
+          </button>
+        )}
+      </div>
+
+      {guideOpen && (
+        <>
+          <div className="scrim show" onClick={() => setGuideOpen(false)} />
+          <section
+            className="sheet install-sheet show"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="install-guide-title"
+          >
+            <div className="sheet-handle" aria-hidden="true">
+              <span className="sheet-grab" />
+            </div>
+            <div className="install-sheet-header row between">
+              <div id="install-guide-title" className="t-h2">How to install Pace</div>
+              <button
+                type="button"
+                className="press add-sheet-close"
+                onClick={() => setGuideOpen(false)}
+                aria-label="Close install guide"
+              >
+                <Icon name="close" size={18} sw={2.2} />
+              </button>
+            </div>
+            <div className="sheet-body install-sheet-body">
+              {instructionOrder.map((key, index) => {
+                const instructions = INSTALL_INSTRUCTIONS[key];
+                const relevant = platform === key;
+
+                return (
+                  <div key={key} className="install-platform">
+                    <div className="row gap-8">
+                      <div className="install-platform-title">{instructions.title}</div>
+                      {relevant && <span className="install-platform-badge">Your device</span>}
+                    </div>
+                    <ol className="install-steps">
+                      {instructions.steps.map(step => <li key={step}>{step}</li>)}
+                    </ol>
+                    {index === 0 && <div className="install-divider" />}
+                  </div>
+                );
+              })}
+            </div>
+          </section>
+        </>
+      )}
+    </>
+  );
+}
 
 function MoneyInput({ value, onChange, cur }: {
   value: number; onChange: (v: number) => void; cur: string;
@@ -214,6 +354,7 @@ export default function SettingsScreen() {
             <Toggle on={settings.roundUps} onToggle={() => updateSettings({ roundUps: !settings.roundUps })} />
           </div>
         </div>
+        <InstallPace />
       </div>
 
       {/* data */}
