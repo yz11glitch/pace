@@ -30,6 +30,11 @@ npx tsc --noEmit
 npm run build
 ```
 
+## PWA Testing
+
+iOS may cache Home Screen web app metadata. After changing icons or status bar
+settings, delete the existing Home Screen icon and add Pace again.
+
 ## Data Storage
 
 Pace currently stores transactions, settings, and theme preferences in the

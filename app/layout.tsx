@@ -16,6 +16,9 @@ export const metadata: Metadata = {
     statusBarStyle: "default",
     capable: true,
   },
+  other: {
+    "apple-mobile-web-app-capable": "yes",
+  },
 };
 
 export const viewport: Viewport = {
