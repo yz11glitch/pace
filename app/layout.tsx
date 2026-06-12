@@ -3,7 +3,8 @@ import "./globals.css";
 import { StoreProvider } from "./components/StoreProvider";
 
 export const metadata: Metadata = {
-  title: "Pace — Money Tracker",
+  title: "Pace",
+  applicationName: "Pace",
   description: "Clean money tracking focused on spending pace",
   manifest: "/manifest.webmanifest",
   icons: {
