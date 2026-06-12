@@ -69,13 +69,13 @@ html, body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
+  background: #FBF6EF;
 }
 
 body {
   font-family: 'Hanken Grotesk', system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-  background: var(--bg-2);
   min-height: 100vh;
   min-height: 100dvh;
 }
@@ -108,6 +108,21 @@ input[type=number] { -moz-appearance: textfield; }
   margin: 0 auto;
   position: relative;
   overflow-x: hidden;
+  background: #FBF6EF;
+}
+.app-shell::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 50%;
+  z-index: 75;
+  width: min(100%, var(--app-max));
+  height: env(safe-area-inset-top);
+  transform: translateX(-50%);
+  background: #FBF6EF;
+  pointer-events: none;
+}
+[data-theme="dark"] .app-shell {
   background: var(--bg);
 }
 .app-content {
