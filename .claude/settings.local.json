@@ -13,7 +13,12 @@
       "Bash(python3 -c \"import sys, html; data = sys.stdin.read\\(\\); print\\('App renders:', 'Pace' in data or 'pace' in data, '| Body present:', '<body>' in data\\)\")",
       "Bash(jobs -l)",
       "Bash(awk '{print $2, $11, $12}')",
-      "mcp__plugin_claude-mem_mcp-search__get_observations"
+      "mcp__plugin_claude-mem_mcp-search__get_observations",
+      "WebFetch(domain:api.anthropic.com)",
+      "Bash(cp webfetch-1781267651562-dyde3w.bin pace-icon.gz)",
+      "Bash(gunzip -c pace-icon.gz)",
+      "Bash(mkdir -p pace-extracted)",
+      "Bash(tar xf *)"
     ]
   }
 }

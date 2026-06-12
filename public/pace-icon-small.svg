@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Pace — Simplified icon for small sizes (64px render target)
+  Coins simplified to 2 dots (medium + large) with slightly heavier P stroke.
+  Use this source for 64×64 PNG export only.
+  At 32px, export just the P (pace-icon-favicon.svg).
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bg" gradientUnits="userSpaceOnUse" x1="163" y1="0" x2="349" y2="512">
+      <stop offset="0%" stop-color="#FFFDFA"/>
+      <stop offset="100%" stop-color="#F4EADF"/>
+    </linearGradient>
+    <clipPath id="squircle-clip">
+      <rect width="512" height="512" rx="118" ry="118"/>
+    </clipPath>
+  </defs>
+
+  <rect width="512" height="512" rx="118" ry="118" fill="url(#bg)"/>
+
+  <!-- Simplified mark: heavier P (stroke-width 14), 2 larger dots -->
+  <g transform="translate(92.16 92.16) scale(3.2768)">
+    <path d="M30 18 V64"
+          fill="none" stroke="#C2683E" stroke-width="14"
+          stroke-linecap="round"/>
+    <path d="M30 18 H48 A18 18 0 0 1 48 54 H30"
+          fill="none" stroke="#C2683E" stroke-width="14"
+          stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- 2-dot simplified rhythm: medium + large only -->
+    <circle cx="48" cy="82" r="5.5" fill="#4F8A6E"/>
+    <circle cx="67" cy="82" r="7.5" fill="#4F8A6E"/>
+  </g>
+
+  <rect width="512" height="512" rx="118" ry="118"
+        fill="none" stroke="rgba(255,255,255,0.45)" stroke-width="5"
+        clip-path="url(#squircle-clip)"/>
+</svg>

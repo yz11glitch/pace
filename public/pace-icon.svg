@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Pace — Direction 02: Pace Rhythm
+  App icon tile (512×512 reference, viewBox scales to any size)
+
+  Colors:
+    Tile bg:     gradient #FFFDFA → #F4EADF (160deg warm cream)
+    P stroke:    #C2683E  (terracotta)
+    Dots fill:   #4F8A6E  (money-green)
+
+  Squircle:    border-radius 23% → rx/ry = 118px at 512px
+  Mark area:   64% of tile = 327.68px, offset 92.16px each side
+  P source:    SVG symbol p2, viewBox 0 0 100 100, scale 3.2768
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <!-- Warm cream tile gradient: CSS linear-gradient(160deg,#FFFDFA,#F4EADF)         -->
+    <!-- Gradient line: (163,0)→(349,512), computed from 160° CSS angle on 512×512 box -->
+    <linearGradient id="bg" gradientUnits="userSpaceOnUse" x1="163" y1="0" x2="349" y2="512">
+      <stop offset="0%" stop-color="#FFFDFA"/>
+      <stop offset="100%" stop-color="#F4EADF"/>
+    </linearGradient>
+    <!-- Clip to squircle shape so inner highlight stays inside -->
+    <clipPath id="squircle-clip">
+      <rect width="512" height="512" rx="118" ry="118"/>
+    </clipPath>
+  </defs>
+
+  <!-- Squircle tile background -->
+  <rect width="512" height="512" rx="118" ry="118" fill="url(#bg)"/>
+
+  <!-- Pace Rhythm mark: P + three growing dots -->
+  <!-- Source: symbol p2 viewBox="0 0 100 100", scaled 3.2768×, offset 92.16px -->
+  <g transform="translate(92.16 92.16) scale(3.2768)">
+    <!-- Terracotta P: vertical stem -->
+    <path d="M30 18 V64"
+          fill="none" stroke="#C2683E" stroke-width="12"
+          stroke-linecap="round"/>
+    <!-- Terracotta P: bowl (right horizontal, semicircle arc, left return) -->
+    <path d="M30 18 H48 A18 18 0 0 1 48 54 H30"
+          fill="none" stroke="#C2683E" stroke-width="12"
+          stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- Money-green rhythm dots: small → medium → large, left → right -->
+    <circle cx="38" cy="82" r="3.4" fill="#4F8A6E"/>
+    <circle cx="54" cy="82" r="4.8" fill="#4F8A6E"/>
+    <circle cx="72" cy="82" r="6.4" fill="#4F8A6E"/>
+  </g>
+
+  <!-- Inner highlight: simulates CSS inset box-shadow top-edge glow -->
+  <rect width="512" height="512" rx="118" ry="118"
+        fill="none" stroke="rgba(255,255,255,0.45)" stroke-width="5"
+        clip-path="url(#squircle-clip)"/>
+</svg>
