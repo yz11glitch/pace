@@ -7,9 +7,7 @@ export const metadata: Metadata = {
   description: "Clean money tracking focused on spending pace",
   manifest: "/manifest.webmanifest",
   icons: {
-    // favicon-32.png: export public/pace-icon-favicon.svg at 32×32
     icon: [{ url: "/favicon-32.png", sizes: "32x32", type: "image/png" }],
-    // apple-touch-icon.png: export public/pace-icon.svg at 180×180
     apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
   },
   appleWebApp: {
@@ -23,6 +21,7 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   maximumScale: 1,
+  themeColor: "#C2683E",
 };
 
 export default function RootLayout({
