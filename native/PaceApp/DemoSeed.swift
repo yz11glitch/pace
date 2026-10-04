@@ -5,6 +5,10 @@ import PaceStore
 /// Deterministic data for UI tests (`-PaceSeed <name>` with `-PaceInMemory YES`).
 enum DemoSeed {
     static func apply(_ name: String, executor: LedgerExecutor, today: LocalDate) {
+        if name == "showcase" {
+            seedShowcase(executor: executor)
+            return
+        }
         if name.hasPrefix("review-") {
             let captured = Instant(iso: "2026-09-28T04:00:00Z")!
             let taught = try! executor.create(TransactionDraft(type: .expense, amountMinor: 100,
@@ -60,6 +64,55 @@ enum DemoSeed {
         add(.refund, 2_850, "2026-09-26", merchant: "Shopee", category: "Shopping")
         add(.contribution, 50_000, "2026-09-26")
         add(.expense, 999, "2026-09-24", merchant: "Grab", category: "Transport")
+    }
+
+    /// Public-only fictional portfolio data; never used with a file database.
+    private static func seedShowcase(executor: LedgerExecutor) {
+        let zone = "Asia/Kuala_Lumpur"
+        let profile = try! executor.setProfile(ProfileInput(paydayAnchor: 25, salaryMinor: 420_000,
+            salaryDay: 25, effectiveCycleStart: LocalDate(iso: "2026-09-25")!,
+            savingsMode: .percentage, savingsBasisPoints: 1_500,
+            fixedCommitmentsMinor: 115_000)) // Rent 900 + Phone 50 + Gym 200.
+        func add(_ type: TransactionType, _ amount: Int, _ day: String, _ merchant: String?, _ category: String?) {
+            _ = try! executor.create(TransactionDraft(type: type, amountMinor: amount,
+                occurredAt: Instant(iso: "\(day)T10:00:00+08:00")!, tzIdentifier: zone,
+                localDate: LocalDate(iso: day)!, merchantText: merchant, categoryID: category, source: .keypad,
+                recurringRuleID: type == .income ? profile.salaryRule?.id : nil,
+                occurrenceDate: type == .income ? LocalDate(iso: day) : nil))
+        }
+        add(.income, 420_000, "2026-09-25", "Employer", "income")
+        add(.refund, 1_500, "2026-09-26", "Bookshop", "shopping")
+        let expenses: [(Int, String, String)] = [
+            (650, "Kopi Corner", "food-drink"), (900, "Nasi Lemak Stall", "food-drink"),
+            (1_420, "Grab", "transport"), (4_830, "Pasar Mini", "groceries"),
+            (2_390, "Northwind Pharmacy", "health"), (3_500, "Bookshop", "shopping"),
+            (6_000, "Petrol", "transport"), (2_800, "Cinema", "entertainment")]
+        for day in 15...28 {
+            let item = expenses[(day - 15) % expenses.count]
+            add(.expense, item.0, String(format: "2026-09-%02d", day), item.1, item.2)
+        }
+        add(.contribution, 63_000, "2026-09-25", nil, nil)
+        let captured = Instant(iso: "2026-09-28T04:00:00Z")!
+        let processor = CaptureProcessor(database: executor.database, now: { captured.date })
+        var policy = CaptureTrustPolicy(); policy.pinnedStage = .observe
+        let ambiguous = CaptureRequest(source: "screenshot", path: "screenshot_generic",
+            amountMinor: nil, merchant: "Pasar Mini", capturedAt: captured, timeZone: zone,
+            amountTrust: .unresolved, merchantTrust: .usable, extractionAmbiguous: true,
+            amountCandidates: ["RM 12.00", "RM 21.00"])
+        precondition(try! processor.process(ambiguous, policy: policy).outcome == .draft)
+        let missing = WalletCaptureAdapter.request(amount: "RM 23.90", merchant: nil,
+            cardOrPass: nil, name: nil, shortcutInput: nil,
+            capturedAt: Instant(seconds: captured.seconds + 60), timeZone: zone)
+        precondition(try! processor.process(missing, policy: policy).outcome == .draft)
+        let category = WalletCaptureAdapter.request(amount: "RM 8.90", merchant: "Kopi Kiosk",
+            cardOrPass: nil, name: nil, shortcutInput: nil,
+            capturedAt: Instant(seconds: captured.seconds + 120), timeZone: zone)
+        precondition(try! processor.process(category, policy: policy).outcome == .draft)
+        let review = CaptureRequest(source: "screenshot", path: "screenshot_intentional_fm",
+            amountMinor: 4_290, merchant: "Kedai Buku Ilmu", categoryID: "shopping",
+            occurredAt: captured, capturedAt: Instant(seconds: captured.seconds + 180), timeZone: zone,
+            amountTrust: .trusted, merchantTrust: .usable, categoryTrust: .usable)
+        precondition(try! processor.process(review, policy: policy).outcome == .draft)
     }
 
     /// Small repeatable Step 0 baseline, using the production adapters and processor.

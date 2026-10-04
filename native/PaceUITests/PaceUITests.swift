@@ -131,7 +131,10 @@ final class PaceUITests: XCTestCase {
         XCTAssertTrue(benchmark.isHittable)
         benchmark.tap()
         XCTAssertTrue(element(app, "fm-bench-availability").waitForExistence(timeout: 5))
-        XCTAssertTrue(element(app, "fm-bench-run").exists)
+        let run = element(app, "fm-bench-run")
+        for _ in 0..<6 where !run.isHittable { app.swipeUp() }
+        XCTAssertTrue(run.exists)
+        XCTAssertTrue(run.isHittable)
     }
 
     func testScrollNavigationRestsAndTabsStayIndependent() {

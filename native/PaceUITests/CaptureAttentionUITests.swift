@@ -23,15 +23,17 @@ import XCTest
         for direction in [true, false] {
             for _ in 0..<8 {
                 if element.isHittable { return }
-                let scroll = app.descendants(matching: .any).matching(NSPredicate(
-                    format: "elementType == %d OR elementType == %d",
-                    XCUIElement.ElementType.scrollView.rawValue, XCUIElement.ElementType.collectionView.rawValue
-                )).allElementsBoundByIndex.last
+                // A presented List can coexist with Home's background ScrollView.
+                // Target the attention list explicitly; otherwise use a hittable
+                // scroll container so gestures reach the current presentation.
+                let attentionList = self.element(app, "needs-you-list")
+                let scroll = app.navigationBars["Needs you"].exists && attentionList.exists
+                    ? attentionList
+                    : app.scrollViews.allElementsBoundByIndex.last(where: { $0.isHittable })
+                        ?? app.collectionViews.allElementsBoundByIndex.last(where: { $0.isHittable })
                 if let scroll {
-                    // The List extends behind Capture/tab chrome. Start inside
-                    // its visible content instead of the default 80% swipe point.
-                    let start = scroll.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: direction ? 0.6 : 0.15))
-                    let end = scroll.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: direction ? 0.15 : 0.6))
+                    let start = scroll.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: direction ? 0.65 : 0.3))
+                    let end = scroll.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: direction ? 0.3 : 0.65))
                     start.press(forDuration: 0.05, thenDragTo: end)
                 }
             }

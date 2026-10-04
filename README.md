@@ -6,7 +6,12 @@ A local-first personal-finance app for iPhone, built with SwiftUI. Pace keeps an
 
 The native app runs independently. The separate Mac-hosted reference engine included below has a local API server.
 
-<!-- SHOWCASE -->
+<table>
+<tr><th>Home</th><th>Needs you</th><th>Review capture</th></tr>
+<tr><td><img src="docs/media/home.png" width="260" alt="Pay-cycle spending and savings"></td><td><img src="docs/media/needs-you.png" width="260" alt="Captures awaiting review"></td><td><img src="docs/media/review-capture.png" width="260" alt="Reviewing a fictional payment"></td></tr>
+<tr><th>History</th><td colspan="2">Synthetic demo data only. Capture provenance and reproduction steps: <a href="docs/media/README.md">screenshot notes</a>.</td></tr>
+<tr><td><img src="docs/media/history.png" width="260" alt="Local ledger history"></td><td colspan="2"></td></tr>
+</table>
 
 ## What it does
 
@@ -81,11 +86,13 @@ Fresh staging validation on 4 October 2026:
 |---|---|---|---|
 | PaceCore | Swift Testing | 114 passed; 1 intentionally disabled | `cd native/Packages/PaceCore && swift test` |
 | PaceStore | Swift Testing | 118 passed | `cd native/Packages/PaceStore && swift test` |
-| Native UI | XCTest | Validation in progress | `xcodebuild test -project native/Pace.xcodeproj -scheme Pace -destination 'platform=iOS Simulator,name=<device>'` |
+| Native UI | XCTest | 38 passed on iPhone 17 Pro (37 existing + 1 showcase) | `xcodebuild test -project native/Pace.xcodeproj -scheme Pace -destination 'platform=iOS Simulator,name=<device>'` |
 | Reference engine | pytest | 281 passed | `uv sync && uv run pytest -q` |
 | Browser domain | Node test runner | 42 passed | `npm run check` |
 
 The Release simulator build passed with signing disabled. Regenerating the Python and JavaScript golden fixtures left the tracked data unchanged; Swift parity tests compare those shared fixtures exactly. Unit tests use temporary stores and model doubles, not live ASR/model calls.
+
+The complete UI suite passed on the 402-point iPhone 17 Pro simulator. An additional two-test run on the 440-point iPhone 17 Pro Max passed benchmark navigation but failed `testWorstCaseScreenshotMatrix` after tapping the missing-amount row. The larger-screen navigation failure remains under investigation; it is not counted as a pass. Public-only scrolling fixes preserve the original assertions and do not change app behavior.
 
 ## Design decisions
 
