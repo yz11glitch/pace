@@ -1,0 +1,5 @@
+// Pace build configuration. Change the prefix if the bundle ID is taken on
+// your team; set DEVELOPMENT_TEAM (or pick the team in Signing & Capabilities)
+// before installing on a device. Free provisioning works (3 App IDs).
+PACE_BUNDLE_ID_PREFIX = com.example
+DEVELOPMENT_TEAM =

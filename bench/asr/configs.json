@@ -1,0 +1,28 @@
+{
+  "parakeet-v2": {
+    "family": "parakeet",
+    "repo_id": "mlx-community/parakeet-tdt-0.6b-v2",
+    "revision": "8ae155301e23d820d82aa60d24817c900e69e487",
+    "expected_repo_bytes": 2471865399
+  },
+  "parakeet-v3": {
+    "family": "parakeet",
+    "repo_id": "mlx-community/parakeet-tdt-0.6b-v3",
+    "revision": "ed2b7e8c15f9aaa0b5772e2efb986255eaef7e15",
+    "expected_repo_bytes": 2509044141
+  },
+  "whisper-turbo": {
+    "family": "whisper",
+    "repo_id": "mlx-community/whisper-large-v3-turbo",
+    "revision": "a4aaeec0636e6fef84abdcbe3544cb2bf7e9f6fb",
+    "expected_repo_bytes": 1613979758,
+    "language": "en"
+  },
+  "whisper-small-en": {
+    "family": "whisper",
+    "repo_id": "mlx-community/whisper-small.en-mlx",
+    "revision": "52a88bf6e98b114a210c21bb83e22d6e1505cb73",
+    "expected_repo_bytes": 481308292,
+    "language": "en"
+  }
+}

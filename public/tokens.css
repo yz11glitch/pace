@@ -1,0 +1,56 @@
+@font-face{font-family:"Hanken Grotesk";font-style:normal;font-weight:400 800;font-display:swap;src:url("/fonts/hanken-grotesk-latin.woff2") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Bricolage Grotesque";font-style:normal;font-weight:700 800;font-display:swap;src:url("/fonts/bricolage-grotesque-latin.woff2") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+
+:root{
+  --app-max:430px;
+  --page-pad:20px;
+  --nav-height:80px;
+  --kb:0px;
+  --bg:#FBF6EF;
+  --card:#FFFDFA;
+  --bg-2:#EDE7DD;
+  --ink:#302E29;
+  --ink-2:#605C53;
+  --ink-3:#6D675D;
+  --hair:#DED7CB;
+  --hair-2:#E8E1D6;
+  --brand:#C2683E;
+  --accent:#A64E2D;
+  --on-accent:#FFFFFF;
+  --accent-soft:#F3E6DE;
+  --positive:#35664E;
+  --positive-soft:#E3EDE7;
+  --tone-warn:#A9362B;
+  --tone-warn-soft:#F4E5DF;
+  --on-danger:#FFFFFF;
+  --control-border:#897F73;
+  --disabled-fill:#EDE7DD;
+  --disabled-text:#6D675D;
+  --scrim:rgba(28,30,26,.42);
+  --shadow-lg:0 20px 56px -18px rgba(28,30,26,.28);
+}
+
+[data-theme="dark"]{
+  --bg:#191C1A;
+  --card:#232723;
+  --bg-2:#2C312C;
+  --ink:#F3EFE6;
+  --ink-2:#B9BBAF;
+  --ink-3:#979B90;
+  --hair:#3B423C;
+  --hair-2:#323832;
+  --brand:#E09A75;
+  --accent:#E09A75;
+  --on-accent:#191C1A;
+  --accent-soft:#382B25;
+  --positive:#8CBA9B;
+  --positive-soft:#26352C;
+  --tone-warn:#EF9C8F;
+  --tone-warn-soft:#392923;
+  --on-danger:#191C1A;
+  --control-border:#7B847A;
+  --disabled-fill:#2C312C;
+  --disabled-text:#979B90;
+  --scrim:rgba(0,0,0,.62);
+  --shadow-lg:0 20px 56px -18px rgba(0,0,0,.6);
+}

@@ -1,0 +1,21 @@
+{"text":"Nasi lemak 9.","state":"committed","direction":"expense","amount_minor":900,"item":"Nasi lemak","category":"Food & Drink"}
+{"text":"A sandwich set me back RM14.80","state":"committed","direction":"expense","amount_minor":1480,"item":"sandwich","category":"Food & Drink"}
+{"text":"RM27 for the bus pass","state":"committed","direction":"expense","amount_minor":2700,"item":"bus pass","category":"Transport"}
+{"text":"The taxi fare came to thirty two","state":"committed","direction":"expense","amount_minor":3200,"item":"taxi fare","category":"Transport"}
+{"text":"Decathlon charged me 79 for socks","state":"committed","direction":"expense","amount_minor":7900,"merchant":"Decathlon","item":"socks","category":"Shopping"}
+{"text":"Village Grocer, forty six ringgit","state":"committed","direction":"expense","amount_minor":4600,"merchant":"Village Grocer","category":"Groceries"}
+{"text":"Bought vegetables for 17 at the market.","state":"committed","direction":"expense","amount_minor":1700,"item":"vegetables","category":"Groceries"}
+{"text":"I paid 6.40 for parking","state":"committed","direction":"expense","amount_minor":640,"item":"parking","category":"Transport"}
+{"text":"The pharmacy bill was twenty three fifty","state":"committed","direction":"expense","amount_minor":2350,"item":"pharmacy","category":"Health"}
+{"text":"Received 750 for the design job","state":"committed","direction":"income","amount_minor":75000,"item":"design job","category":"Income"}
+{"text":"My freelance editing brought in RM420","state":"committed","direction":"income","amount_minor":42000,"item":"freelance editing","category":"Income"}
+{"text":"A commission of 95 landed today","state":"committed","direction":"income","amount_minor":9500,"item":"commission","category":"Income"}
+{"text":"The cinema refunded my 28 ringgit ticket","state":"committed","direction":"refund","amount_minor":2800,"item":"cinema ticket"}
+{"text":"Lazada returned RM19.90 for the case","state":"committed","direction":"refund","amount_minor":1990,"merchant":"Lazada","item":"case"}
+{"text":"Moved 250 to my emergency fund","state":"committed","direction":"contribution","amount_minor":25000,"item":"emergency fund"}
+{"text":"Another RM75 towards retirement savings","state":"committed","direction":"contribution","amount_minor":7500,"item":"retirement savings"}
+{"text":"Yesterday the museum entry was 12","state":"committed","direction":"expense","amount_minor":1200,"item":"museum entry","category":"Entertainment","date_offset_days":1}
+{"text":"On 18 September I spent RM34 at BookXcess","state":"committed","direction":"expense","amount_minor":3400,"merchant":"BookXcess","category":"Shopping","local_date":"2026-09-18"}
+{"text":"Bread at Maple Bakery was eight ringgit.","state":"committed","direction":"expense","amount_minor":800,"merchant":"Maple Bakery","item":"Bread","category":"Food & Drink"}
+{"text":"Paid 1650 at a roadside stall","state":"needs_clarification"}
+{"text":"Maybe that was 18 or 80 for the cab","state":"needs_clarification"}

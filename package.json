@@ -1,0 +1,19 @@
+{
+  "name": "pace-reference-engine",
+  "type": "module",
+  "private": true,
+  "version": "0.0.0",
+  "description": "Pace reference engine and browser client (local, Mac-hosted)",
+  "scripts": {
+    "start": "uv run uvicorn noted.api:app --host 127.0.0.1 --port 4173",
+    "start:shadow": "NOTED_LLM_ENABLED=1 uv run uvicorn noted.api:app --host 127.0.0.1 --port 4173",
+    "start:llm": "sh scripts/start-llm.sh",
+    "check": "node --check public/app.js && node --check public/icons.js && node --check public/ui-core.js && node --check public/pcm-capture-worklet.js && node --check public/sw.js && node --check scripts/generate-icons.mjs && node --test tests/frontend-mode.test.mjs tests/frontend-ui.test.mjs",
+    "backup": "uv run python -m noted.backup backup",
+    "restore": "uv run python -m noted.backup restore",
+    "icons": "node scripts/generate-icons.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Pace — Standalone mark (no tile background)
+  Use this on colored/photo backgrounds, in wordmarks, or at larger display sizes.
+
+  viewBox 0 0 100 100 preserves original design proportions.
+  Colors are hardcoded (no CSS variables).
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <!-- Terracotta P -->
+  <path d="M30 18 V64"
+        fill="none" stroke="#C2683E" stroke-width="12"
+        stroke-linecap="round"/>
+  <path d="M30 18 H48 A18 18 0 0 1 48 54 H30"
+        fill="none" stroke="#C2683E" stroke-width="12"
+        stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Money-green rhythm dots -->
+  <circle cx="38" cy="82" r="3.4" fill="#4F8A6E"/>
+  <circle cx="54" cy="82" r="4.8" fill="#4F8A6E"/>
+  <circle cx="72" cy="82" r="6.4" fill="#4F8A6E"/>
+</svg>

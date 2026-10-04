@@ -1,0 +1,8 @@
+{"text":"A bowl of laksa came to 13.50","state":"committed","direction":"expense","amount_minor":1350,"item":"laksa","category":"Food & Drink"}
+{"text":"38 ringgit for a train ticket","state":"committed","direction":"expense","amount_minor":3800,"item":"train ticket","category":"Transport"}
+{"text":"Watsons charged RM24 for shampoo","state":"committed","direction":"expense","amount_minor":2400,"merchant":"Watsons","item":"shampoo","category":"Shopping"}
+{"text":"Sold the old monitor for 180","state":"committed","direction":"income","amount_minor":18000,"item":"old monitor","category":"Income"}
+{"text":"The store gave my 15 ringgit back","state":"committed","direction":"refund","amount_minor":1500}
+{"text":"Transferred RM90 to my holiday fund","state":"committed","direction":"contribution","amount_minor":9000,"item":"holiday fund"}
+{"text":"I paid 11 for a juice yesterday.","state":"committed","direction":"expense","amount_minor":1100,"item":"juice","category":"Food & Drink","date_offset_days":1}
+{"text":"The ride was either 21 or 27","state":"needs_clarification"}

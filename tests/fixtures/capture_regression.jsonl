@@ -1,0 +1,10 @@
+{"text":"Lunch was 20.","state":"committed","direction":"expense","amount_minor":2000,"item":"Lunch","category":"Food & Drink"}
+{"text":"Dinner cost me 35","state":"committed","direction":"expense","amount_minor":3500,"item":"Dinner","category":"Food & Drink"}
+{"text":"Coffee came to twelve fifty","state":"committed","direction":"expense","amount_minor":1250,"item":"Coffee","category":"Food & Drink"}
+{"text":"Grab home was 23","state":"committed","direction":"expense","amount_minor":2300,"merchant":"Grab","category":"Transport"}
+{"text":"Spent about 40 on groceries","state":"committed","direction":"expense","amount_minor":4000,"item":"groceries","category":"Groceries"}
+{"text":"McD twenty","state":"committed","direction":"expense","amount_minor":2000,"merchant":"McDonald's","category":"Food & Drink"}
+{"text":"Paid eighteen bucks for Starbucks","state":"committed","direction":"expense","amount_minor":1800,"merchant":"Starbucks","category":"Food & Drink"}
+{"text":"Got 800 commission","state":"committed","direction":"income","amount_minor":80000,"item":"commission","category":"Income"}
+{"text":"Shopee gave me 42 back","state":"committed","direction":"refund","amount_minor":4200,"merchant":"Shopee","category":"Shopping"}
+{"text":"Put 300 into investments","state":"committed","direction":"contribution","amount_minor":30000,"item":"investments"}

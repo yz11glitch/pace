@@ -1,0 +1,24 @@
+[project]
+name = "pace-reference-engine"
+version = "0.1.0"
+description = "Pace reference engine and local ASR benchmark tooling"
+requires-python = ">=3.11,<3.14"
+dependencies = [
+  "fastapi>=0.116,<1",
+  "huggingface-hub>=0.34,<2",
+  "jiwer>=4,<5",
+  "mlx-whisper>=0.4.3,<0.5",
+  "numpy>=2,<3",
+  "parakeet-mlx>=0.5.1,<0.6",
+  "psutil>=7,<8",
+  "scipy>=1.16,<2",
+  "uvicorn>=0.35,<1",
+  "whisper-normalizer>=0.1.15,<0.2",
+]
+
+[dependency-groups]
+dev = ["httpx>=0.28,<1", "pytest>=8,<10"]
+
+[tool.pytest.ini_options]
+testpaths = ["bench/asr/tests", "tests"]
+pythonpath = ["."]

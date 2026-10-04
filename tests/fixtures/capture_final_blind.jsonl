@@ -1,0 +1,10 @@
+{"text":"Oat milk was RM8.70.","state":"committed","direction":"expense","amount_minor":870,"item":"Oat milk","category":"Food & Drink"}
+{"text":"Cafe Meridian charged 16 for a muffin","state":"committed","direction":"expense","amount_minor":1600,"merchant":"Cafe Meridian","item":"muffin","category":"Food & Drink"}
+{"text":"Forty ringgit went on petrol","state":"committed","direction":"expense","amount_minor":4000,"item":"petrol","category":"Transport"}
+{"text":"My tutoring fee of 220 arrived","state":"committed","direction":"income","amount_minor":22000,"item":"tutoring fee","category":"Income"}
+{"text":"Got RM60 back for the headphones","state":"committed","direction":"refund","amount_minor":6000,"item":"headphones"}
+{"text":"Added 140 to my travel pot","state":"committed","direction":"contribution","amount_minor":14000,"item":"travel pot"}
+{"text":"On 19 September the ferry cost 12","state":"committed","direction":"expense","amount_minor":1200,"item":"ferry","category":"Transport","local_date":"2026-09-19"}
+{"text":"It might have been 7 or 17 for the pastry","state":"needs_clarification"}
+{"text":"Thirty five for the office supplies at Papertrail","state":"committed","direction":"expense","amount_minor":3500,"merchant":"Papertrail","item":"office supplies","category":"Shopping"}
+{"text":"Atlas Studio paid me RM1,250 for design work","state":"committed","direction":"income","amount_minor":125000,"merchant":"Atlas Studio","item":"design work","category":"Income"}

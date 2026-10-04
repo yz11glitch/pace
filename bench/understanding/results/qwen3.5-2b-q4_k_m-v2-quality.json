@@ -1,0 +1,4092 @@
+{
+  "summary": {
+    "cases": 86,
+    "passes": 1,
+    "contract": "v2",
+    "cadence": "sustained",
+    "idle_seconds": 0,
+    "shuffle_seed": 20260917,
+    "grammar_conformance_rate": 1.0,
+    "semantic_validation_rate": 0.9186046511627907,
+    "intent_accuracy": 0.813953488372093,
+    "per_field_accuracy": {
+      "amount_expr": 0.9166666666666666,
+      "answer_expr": 0.0,
+      "category_hint": 0.6666666666666666,
+      "choice_ordinal": 0.875,
+      "compare_period_expr": 0.5,
+      "date_expr": 0.6875,
+      "direction": 0.75,
+      "intent": 0.813953488372093,
+      "item_expr": 0.6875,
+      "kind": 0.8333333333333334,
+      "merchant_expr": 0.8148148148148148,
+      "negated_category_hint": 0.625,
+      "period_expr": 0.625,
+      "polarity": 0.875,
+      "reason_hint": 0.5,
+      "reference": 0.5,
+      "shape": 0.5416666666666666,
+      "surface_expr": 0.8333333333333334,
+      "turn_kind": 0.7790697674418605
+    },
+    "p50_ms": 1334.0,
+    "p95_ms": 1556,
+    "per_intent_latency": {
+      "answer_clarification": {
+        "cases": 8,
+        "p50_ms": 1183.0,
+        "p95_ms": 1259
+      },
+      "categorize_transaction": {
+        "cases": 8,
+        "p50_ms": 1535.0,
+        "p95_ms": 1701
+      },
+      "create_transaction": {
+        "cases": 16,
+        "p50_ms": 1445.0,
+        "p95_ms": 1602
+      },
+      "delete_transaction": {
+        "cases": 8,
+        "p50_ms": 1279.0,
+        "p95_ms": 2501
+      },
+      "query_transactions": {
+        "cases": 24,
+        "p50_ms": 1451.0,
+        "p95_ms": 1548
+      },
+      "teach_memory": {
+        "cases": 6,
+        "p50_ms": 1271.0,
+        "p95_ms": 1413
+      },
+      "unsupported": {
+        "cases": 8,
+        "p50_ms": 1092.5,
+        "p95_ms": 1109
+      },
+      "update_transaction": {
+        "cases": 8,
+        "p50_ms": 1251.5,
+        "p95_ms": 1299
+      }
+    },
+    "output_chars_mean": 119.23255813953489,
+    "output_bytes_mean": 119.23255813953489,
+    "predicted_tokens_mean": 26.825581395348838,
+    "prompt_ms_mean": 848.9628604651163,
+    "predicted_ms_mean": 482.9381279069767,
+    "byte_exact_rate": null,
+    "llama_rss_bytes": 1588887552
+  },
+  "results": [
+    {
+      "id": "u036",
+      "text": "Delete the ZUS one, it was a mistake.",
+      "expected_intent": "delete_transaction",
+      "status": "validated",
+      "latency_ms": 2501,
+      "prompt_n": 1002,
+      "cached_prompt_n": 0,
+      "prompt_ms": 1899.219,
+      "predicted_n": 25,
+      "predicted_ms": 517.914,
+      "output_chars": 113,
+      "output_bytes": 113,
+      "output_sha256": "08ee6abba9be332efe9080ccadb6a323c677d09dee06f7829c04ed7447c2b41b",
+      "baseline_byte_exact": null,
+      "fields": {
+        "turn_kind": {
+          "expected": "statement",
+          "actual": "statement",
+          "correct": true
+        },
+        "intent": {
+          "expected": "delete_transaction",
+          "actual": "delete_transaction",
+          "correct": true
+        },
+        "merchant_expr": {
+          "expected": "ZUS",
+          "actual": "ZUS",
+          "correct": true
+        },
+        "reason_hint": {
+          "expected": "mistake",
+          "actual": "mistake",
+          "correct": true
+        }
+      },
+      "error": null,
+      "raw_json": "{\"intent\":\"delete_transaction\",\"target\":{\"reference\":\"descriptor\",\"merchant_expr\":\"ZUS\"},\"reason_hint\":\"mistake\"}"
+    },
+    {
+      "id": "u066",
+      "text": "What is the capital of Malaysia?",
+      "expected_intent": "unsupported",
+      "status": "validated",
+      "latency_ms": 1109,
+      "prompt_n": 512,
+      "cached_prompt_n": 486,
+      "prompt_ms": 842.117,
+      "predicted_n": 14,
+      "predicted_ms": 260.101,
+      "output_chars": 64,
+      "output_bytes": 64,
+      "output_sha256": "e153bd883a540a89d6796275c8549cdf8efb15e38d60f784962430419bf13d6c",
+      "baseline_byte_exact": null,
+      "fields": {
+        "turn_kind": {
+          "expected": "question",
+          "actual": "question",
+          "correct": true
+        },
+        "intent": {
+          "expected": "unsupported",
+          "actual": "unsupported",
+          "correct": true
+        }
+      },
+      "error": null,
+      "raw_json": "{\"intent\":\"unsupported\",\"reason_hint\":\"not a financial request\"}"
+    },
+    {
+      "id": "u012",
+      "text": "Lunch was fifteen ringgit just now.",
+      "expected_intent": "create_transaction",
+      "status": "validated",
+      "latency_ms": 1470,
+      "prompt_n": 514,
+      "cached_prompt_n": 486,
+      "prompt_ms": 843.197,
+      "predicted_n": 33,
+      "predicted_ms": 621.084,
+      "output_chars": 136,
+      "output_bytes": 136,
+      "output_sha256": "c052dfcb71e8ad7024a225692540c85cb1d28e512708e36b860b22cf8b69600b",
+      "baseline_byte_exact": null,
+      "fields": {
+        "turn_kind": {
+          "expected": "statement",
+          "actual": "statement",
+          "correct": true
+        },
+        "intent": {
+          "expected": "create_transaction",
+          "actual": "create_transaction",
+          "correct": true
+        },
+        "amount_expr": {
+          "expected": "fifteen ringgit",
+          "actual": "fifteen ringgit",
+          "correct": true
+        },
+        "direction": {
+          "expected": "expense",
+          "actual": "expense",
+          "correct": true
+        },
+        "merchant_expr": {
+          "expected": null,
+          "actual": null,
+          "correct": true
+        },
+        "item_expr": {
+          "expected": "Lunch",
+          "actual": "Lunch",
+          "correct": true
+        },
+        "category_hint": {
+          "expected": "Food & Drink",
+          "actual": "Food & Drink",
+          "correct": true
+        },
+        "date_expr": {
+          "expected": "just now",
+          "actual": null,
+          "correct": false
+        }
+      },
+      "error": null,
+      "raw_json": "{\"intent\":\"create_transaction\",\"amount_expr\":\"fifteen ringgit\",\"direction\":\"expense\",\"item_expr\":\"Lunch\",\"category_hint\":\"Food & Drink\"}"
+    },
+    {
+      "id": "u041",
+      "text": "How much did I spend on food this week?",
+      "expected_intent": "query_transactions",
+      "status": "validated",
+      "latency_ms": 1505,
+      "prompt_n": 515,
+      "cached_prompt_n": 486,
+      "prompt_ms": 840.747,
+      "predicted_n": 35,
+      "predicted_ms": 657.595,
+      "output_chars": 153,
+      "output_bytes": 153,
+      "output_sha256": "12ddc315889052c1661c73fa1a57e0bbd09dc0d3c2575f5a249cf9553b59c82c",
+      "baseline_byte_exact": null,
+      "fields": {
+        "turn_kind": {
+          "expected": "question",
+          "actual": "question",
+          "correct": true
+        },
+        "intent": {
+          "expected": "query_transactions",
+          "actual": "query_transactions",
+          "correct": true
+        },
+        "shape": {
+          "expected": "sum",
+          "actual": "sum",
+          "correct": true
+        },
+        "period_expr": {
+          "expected": "this week",
+          "actual": "this week",
+          "correct": true
+        },
+        "category_hint": {
+          "expected": "Food & Drink",
+          "actual": "Food & Drink",
+          "correct": true
+        },
+        "merchant_expr": {
+          "expected": null,
+          "actual": null,
+          "correct": true
+        }
+      },
+      "error": null,
+      "raw_json": "{\"intent\":\"query_transactions\",\"query\":{\"shape\":\"sum\",\"period_expr\":\"this week\",\"category_hint\":\"Food & Drink\",\"item_expr\":\"food\",\"direction\":\"expense\"}}"
+    },
+    {
+      "id": "u073",
+      "text": "Show my food transactions from today.",
+      "expected_intent": "query_transactions",
+      "status": "validated",
+      "latency_ms": 1489,
+      "prompt_n": 512,
+      "cached_prompt_n": 486,
+      "prompt_ms": 840.396,
+      "predicted_n": 34,
+      "predicted_ms": 642.181,
+      "output_chars": 149,
+      "output_bytes": 149,
+      "output_sha256": "c54ff98c859c427d4e97af9fabb1ac0fa142a76c588f084d7c0e76089c9d0ed6",
+      "baseline_byte_exact": null,
+      "fields": {
+        "turn_kind": {
+          "expected": "question",
+          "actual": "question",
+          "correct": true
+        },
+        "intent": {
+          "expected": "query_transactions",
+          "actual": "query_transactions",
+          "correct": true
+        },
+        "shape": {
+          "expected": "list",
+          "actual": "sum",
+          "correct": false
+        },
+        "period_expr": {
+          "expected": "today",
+          "actual": "today",
+          "correct": true
+        },
+        "category_hint": {
+          "expected": "Food & Drink",
+          "actual": "Food & Drink",
+          "correct": true
+        },
+        "merchant_expr": {
+          "expected": null,
+          "actual": null,
+          "correct": true
+        }
+      },
+      "error": null,
+      "raw_json": "{\"intent\":\"query_transactions\",\"query\":{\"shape\":\"sum\",\"period_expr\":\"today\",\"category_hint\":\"Food & Drink\",\"item_expr\":\"food\",\"direction\":\"expense\"}}"
+    },
+    {
+      "id": "u053",
+      "text": "Remember parking is transport.",
+      "expected_intent": "teach_memory",
+      "status": "validated",
+      "latency_ms": 1101,
+      "prompt_n": 510,
+      "cached_prompt_n": 486,
+      "prompt_ms": 839.198,
+      "predicted_n": 14,
+      "predicted_ms": 254.523,
+      "output_chars": 64,
+      "output_bytes": 64,
+      "output_sha256": "e153bd883a540a89d6796275c8549cdf8efb15e38d60f784962430419bf13d6c",
+      "baseline_byte_exact": null,
+      "fields": {
+        "turn_kind": {
+          "expected": "statement",
+          "actual": "statement",
+          "correct": true
+        },
+        "intent": {
+          "expected": "teach_memory",
+          "actual": "unsupported",
+          "correct": false
+        },
+        "kind": {
+          "expected": "item",
+          "actual": null,
+          "correct": false
+        },
+        "surface_expr": {
+          "expected": "parking",
+          "actual": null,
+          "correct": false
+        },
+        "category_hint": {
+          "expected": "Transport",
+          "actual": null,
+          "correct": false
+        }
+      },
+      "error": null,
+      "raw_json": "{\"intent\":\"unsupported\",\"reason_hint\":\"not a financial request\"}"
+    },
+    {
+      "id": "u008",
+      "text": "Coffee cost nine ringgit today.",
+      "expected_intent": "create_transaction",
+      "status": "validated",
+      "latency_ms": 1409,
+      "prompt_n": 512,
+      "cached_prompt_n": 486,
+      "prompt_ms": 839.632,
+      "predicted_n": 30,
+      "predicted_ms": 563.187,
+      "output_chars": 134,
+      "output_bytes": 134,
+      "output_sha256": "8c92fff35d580f7febf5580419a320d472c66589df0b1977b05772653e73511f",
+      "baseline_byte_exact": null,
+      "fields": {
+        "turn_kind": {
+          "expected": "statement",
+          "actual": "statement",
+          "correct": true
+        },
+        "intent": {
+          "expected": "create_transaction",
+          "actual": "create_transaction",
+          "correct": true
+        },
+        "amount_expr": {
+          "expected": "nine ringgit",
+          "actual": "nine ringgit",
+          "correct": true
+        },
+        "direction": {
+          "expected": "expense",
+          "actual": "expense",
+          "correct": true
+        },
+        "merchant_expr": {
+          "expected": null,
+          "actual": null,
+          "correct": true
+        },
+        "item_expr": {
+          "expected": "Coffee",
+          "actual": "Coffee",
+          "correct": true
+        },
+        "category_hint": {
+          "expected": "Food & Drink",
+          "actual": "Food & Drink",
+          "correct": true
+        },
+        "date_expr": {
+          "expected": "today",
+          "actual": null,
+          "correct": false
+        }
+      },
+      "error": null,
+      "raw_json": "{\"intent\":\"create_transaction\",\"amount_expr\":\"nine ringgit\",\"direction\":\"expense\",\"item_expr\":\"Coffee\",\"category_hint\":\"Food & Drink\"}"
+    },
+    {
+      "id": "u063",
+      "text": "How tall is Mount Kinabalu?",
+      "expected_intent": "unsupported",
+      "status": "validated",
+      "latency_ms": 1099,
+      "prompt_n": 513,
+      "cached_prompt_n": 486,
+      "prompt_ms": 839.711,
+      "predicted_n": 14,
+      "predicted_ms": 252.678,
+      "output_chars": 64,
+      "output_bytes": 64,
+      "output_sha256": "e153bd883a540a89d6796275c8549cdf8efb15e38d60f784962430419bf13d6c",
+      "baseline_byte_exact": null,
+      "fields": {
+        "turn_kind": {
+          "expected": "question",
+          "actual": "question",
+          "correct": true
+        },
+        "intent": {
+          "expected": "unsupported",
+          "actual": "unsupported",
+          "correct": true
+        }
+      },
+      "error": null,
+      "raw_json": "{\"intent\":\"unsupported\",\"reason_hint\":\"not a financial request\"}"
+    },
+    {
+      "id": "u075",
+      "text": "Did I spend more this week than last week?",
+      "expected_intent": "query_transactions",
+      "status": "validated",
+      "latency_ms": 1099,
+      "prompt_n": 515,
+      "cached_prompt_n": 486,
+      "prompt_ms": 839.309,
+      "predicted_n": 14,
+      "predicted_ms": 253.495,
+      "output_chars": 64,
+      "output_bytes": 64,
+      "output_sha256": "e153bd883a540a89d6796275c8549cdf8efb15e38d60f784962430419bf13d6c",
+      "baseline_byte_exact": null,
+      "fields": {
+        "turn_kind": {
+          "expected": "question",
+          "actual": "question",
+          "correct": true
+        },
+        "intent": {
+          "expected": "query_transactions",
+          "actual": "unsupported",
+          "correct": false
+        },
+        "shape": {
+          "expected": "compare_periods",
+          "actual": null,
+          "correct": false
+        },
+        "period_expr": {
+          "expected": "this week",
+          "actual": null,
+          "correct": false
+        },
+        "compare_period_expr": {
+          "expected": "last week",
+          "actual": null,
+          "correct": false
+        },
+        "category_hint": {
+          "expected": null,
+          "actual": null,
+          "correct": true
+        },
+        "merchant_expr": {
+          "expected": null,
+          "actual": null,
+          "correct": true
+        }
+      },
+      "error": null,
+      "raw_json": "{\"intent\":\"unsupported\",\"reason_hint\":\"not a financial request\"}"
+    },
+    {
+      "id": "u024",
+      "text": "Correct the last one to one hundred ringgit.",
+      "expected_intent": "update_transaction",
+      "status": "validated",
+      "latency_ms": 1299,
+      "prompt_n": 515,
+      "cached_prompt_n": 486,
+      "prompt_ms": 845.864,
+      "predicted_n": 24,
+      "predicted_ms": 447.194,
+      "output_chars": 117,
+      "output_bytes": 117,
+      "output_sha256": "83a713e2aa837afd48eda152d1f0b27a549ab734245508a1d825690596620a2a",
+      "baseline_byte_exact": null,
+      "fields": {
+        "turn_kind": {
+          "expected": "correction",
+          "actual": "correction",
+          "correct": true
+        },
+        "intent": {
+          "expected": "update_transaction",
+          "actual": "update_transaction",
+          "correct": true
+        },
+        "reference": {
+          "expected": "last_created",
+          "actual": "last_created",
+          "correct": true
+        },
+        "amount_expr": {
+          "expected": "one hundred ringgit",
+          "actual": "one hundred ringgit",
+          "correct": true
+        }
+      },
+      "error": null,
+      "raw_json": "{\"intent\":\"update_transaction\",\"target\":{\"reference\":\"last_created\"},\"changes\":{\"amount_expr\":\"one hundred ringgit\"}}"
+    },
+    {
+      "id": "u052",
+      "text": "Remember GrabFood is food.",
+      "expected_intent": "teach_memory",
+      "status": "validated",
+      "latency_ms": 1313,
+      "prompt_n": 511,
+      "cached_prompt_n": 486,
+      "prompt_ms": 839.931,
+      "predicted_n": 25,
+      "predicted_ms": 466.95,
+      "output_chars": 100,
+      "output_bytes": 100,
+      "output_sha256": "ab7fd0876dbbc6b16e0772a18375c05ccd37894ef56563ace7333a9e14fb408d",
+      "baseline_byte_exact": null,
+      "fields": {
+        "turn_kind": {
+          "expected": "statement",
+          "actual": "statement",
+          "correct": true
+        },
+        "intent": {
+          "expected": "teach_memory",
+          "actual": "teach_memory",
+          "correct": true
+        },
+        "kind": {
+          "expected": "merchant",
+          "actual": "merchant",
+          "correct": true
+        },
+        "surface_expr": {
+          "expected": "GrabFood",
+          "actual": "GrabFood",
+          "correct": true
+        },
+        "category_hint": {
+          "expected": "Food & Drink",
+          "actual": "Food & Drink",
+          "correct": true
+        }
+      },
+      "error": null,
+      "raw_json": "{\"intent\":\"teach_memory\",\"kind\":\"merchant\",\"surface_expr\":\"GrabFood\",\"category_hint\":\"Food & Drink\"}"
+    },
+    {
+      "id": "u050",
+      "text": "Remember nasi lemak is food.",
+      "expected_intent": "teach_memory",
+      "status": "validated",
+      "latency_ms": 1314,
+      "prompt_n": 511,
+      "cached_prompt_n": 486,
+      "prompt_ms": 841.532,
+      "predicted_n": 25,
+      "predicted_ms": 466.243,
+      "output_chars": 98,
+      "output_bytes": 98,
+      "output_sha256": "3f039703fd33a92f78dc8d1c1ca9dd6a2ad8b82e68a755ba4d3e04373f594468",
+      "baseline_byte_exact": null,
+      "fields": {
+        "turn_kind": {
+          "expected": "statement",
+          "actual": "statement",
+          "correct": true
+        },
+        "intent": {
+          "expected": "teach_memory",
+          "actual": "teach_memory",
+          "correct": true
+        },
+        "kind": {
+          "expected": "item",
+          "actual": "item",
+          "correct": true
+        },
+        "surface_expr": {
+          "expected": "nasi lemak",
+          "actual": "nasi lemak",
+          "correct": true
+        },
+        "category_hint": {
+          "expected": "Food & Drink",
+          "actual": "Food & Drink",
+          "correct": true
+        }
+      },
+      "error": null,
+      "raw_json": "{\"intent\":\"teach_memory\",\"kind\":\"item\",\"surface_expr\":\"nasi lemak\",\"category_hint\":\"Food & Drink\"}"
+    },
+    {
+      "id": "u022",
+      "text": "Actually the previous transaction was sixteen fifty.",
+      "expected_intent": "update_transaction",
+      "status": "validated",
+      "latency_ms": 1257,
+      "prompt_n": 513,
+      "cached_prompt_n": 486,
+      "prompt_ms": 843.32,
+      "predicted_n": 22,
+      "predicted_ms": 407.125,
+      "output_chars": 107,
+      "output_bytes": 107,
+      "output_sha256": "bc6a4ce70bece7547a58d41049ba5ae77e5b050494ed0000e6d90ab61912346d",
+      "baseline_byte_exact": null,
+      "fields": {
+        "turn_kind": {
+          "expected": "correction",
+          "actual": "correction",
+          "correct": true
+        },
+        "intent": {
+          "expected": "update_transaction",
+          "actual": "update_transaction",
+          "correct": true
+        },
+        "reference": {
+          "expected": "previous",
+          "actual": "previous",
+          "correct": true
+        },
+        "amount_expr": {
+          "expected": "sixteen fifty",
+          "actual": "sixteen fifty",
+          "correct": true
+        }
+      },
+      "error": null,
+      "raw_json": "{\"intent\":\"update_transaction\",\"target\":{\"reference\":\"previous\"},\"changes\":{\"amount_expr\":\"sixteen fifty\"}}"
+    },
+    {
+      "id": "u038",
+      "text": "Delete that Shopee purchase.",
+      "expected_intent": "delete_transaction",
+      "status": "validated",
+      "latency_ms": 1326,
+      "prompt_n": 510,
+      "cached_prompt_n": 486,
+      "prompt_ms": 839.541,
+      "predicted_n": 25,
+      "predicted_ms": 480.104,
+      "output_chars": 118,
+      "output_bytes": 118,
+      "output_sha256": "6ccf5f2686e10f4a93d757a9e0d2f15d781fae481e35b9cb2143512556c1316a",
+      "baseline_byte_exact": null,
+      "fields": {
+        "turn_kind": {
+          "expected": "statement",
+          "actual": "statement",
+          "correct": true
+        },
+        "intent": {
+          "expected": "delete_transaction",
+          "actual": "delete_transaction",
+          "correct": true
+        },
+        "merchant_expr": {
+          "expected": "Shopee",
+          "actual": "Shopee",
+          "correct": true
+        },
+        "reason_hint": {
+          "expected": null,
+          "actual": "duplicate",
+          "correct": false
+        }
+      },
+      "error": null,
+      "raw_json": "{\"intent\":\"delete_transaction\",\"target\":{\"reference\":\"descriptor\",\"merchant_expr\":\"Shopee\"},\"reason_hint\":\"duplicate\"}"
+    },
+    {
+      "id": "u044",
+      "text": "What was my biggest expense this month?",
+      "expected_intent": "query_transactions",
+      "status": "validated",
+      "latency_ms": 1470,
+      "prompt_n": 513,
+      "cached_prompt_n": 486,
+      "prompt_ms": 843.406,
+      "predicted_n": 32,
+      "predicted_ms": 620.845,
+      "output_chars": 147,
+      "output_bytes": 147,
+      "output_sha256": "cd522a0f9e3b102322e1273824741feb35455a1a14b507adb374e00f2abbe677",
+      "baseline_byte_exact": null,
+      "fields": {
+        "turn_kind": {
+          "expected": "question",
+          "actual": "question",
+          "correct": true
+        },
+        "intent": {
+          "expected": "query_transactions",
+          "actual": "query_transactions",
+          "correct": true
+        },
+        "shape": {
+          "expected": "max_transaction",
+          "actual": "max_transaction",
+          "correct": true
+        },
+        "period_expr": {
+          "expected": "this month",
+          "actual": "this month",
+          "correct": true
+        },
+        "category_hint": {
+          "expected": null,
+          "actual": "Food & Drink",
+          "correct": false
+        },
+        "merchant_expr": {
+          "expected": null,
+          "actual": null,
+          "correct": true
+        }
+      },
+      "error": null,
+      "raw_json": "{\"intent\":\"query_transactions\",\"query\":{\"shape\":\"max_transaction\",\"period_expr\":\"this month\",\"category_hint\":\"Food & Drink\",\"item_expr\":\"expense\"}}"
+    },
+    {
+      "id": "u037",
+      "text": "Remove the duplicate Shell entry.",
+      "expected_intent": "delete_transaction",
+      "status": "validated",
+      "latency_ms": 1275,
+      "prompt_n": 511,
+      "cached_prompt_n": 486,
+      "prompt_ms": 840.781,
+      "predicted_n": 23,
+      "predicted_ms": 427.899,
+      "output_chars": 117,
+      "output_bytes": 117,
+      "output_sha256": "438780e6d92f4e9c6d25eca7bdaab376cea220cc63d776f4a9adb8257073d931",
+      "baseline_byte_exact": null,
+      "fields": {
+        "turn_kind": {
+          "expected": "statement",
+          "actual": "statement",
+          "correct": true
+        },
+        "intent": {
+          "expected": "delete_transaction",
+          "actual": "delete_transaction",
+          "correct": true
+        },
+        "merchant_expr": {
+          "expected": "Shell",
+          "actual": "Shell",
+          "correct": true
+        },
+        "reason_hint": {
+          "expected": "duplicate",
+          "actual": "duplicate",
+          "correct": true
+        }
+      },
+      "error": null,
+      "raw_json": "{\"intent\":\"delete_transaction\",\"target\":{\"reference\":\"descriptor\",\"merchant_expr\":\"Shell\"},\"reason_hint\":\"duplicate\"}"
+    },
+    {
+      "id": "u010",
+      "text": "Shopee order was one hundred twenty ringgit.",
+      "expected_intent": "create_transaction",
+      "status": "validated",
+      "latency_ms": 1478,
+      "prompt_n": 516,
+      "cached_prompt_n": 486,
+      "prompt_ms": 837.676,
+      "predicted_n": 33,
+      "predicted_ms": 634.385,
+      "output_chars": 150,
+      "output_bytes": 150,
+      "output_sha256": "e340838774b0799d0f488292238763ce5b580e169c32a95db8d1d62654e7db82",
+      "baseline_byte_exact": null,
+      "fields": {
+        "turn_kind": {
+          "expected": "statement",
+          "actual": "statement",
+          "correct": true
+        },
+        "intent": {
+          "expected": "create_transaction",
+          "actual": "create_transaction",
+          "correct": true
+        },
+        "amount_expr": {
+          "expected": "one hundred twenty ringgit",
+          "actual": "one hundred twenty ringgit",
+          "correct": true
+        },
+        "direction": {
+          "expected": "expense",
+          "actual": "expense",
+          "correct": true
+        },
+        "merchant_expr": {
+          "expected": "Shopee",
+          "actual": null,
+          "correct": false
+        },
+        "item_expr": {
+          "expected": "order",
+          "actual": "Shopee order",
+          "correct": false
+        },
+        "category_hint": {
+          "expected": "Shopping",
+          "actual": "Shopping",
+          "correct": true
+        },
+        "date_expr": {
+          "expected": null,
+          "actual": null,
+          "correct": true
+        }
+      },
+      "error": null,
+      "raw_json": "{\"intent\":\"create_transaction\",\"amount_expr\":\"one hundred twenty ringgit\",\"direction\":\"expense\",\"item_expr\":\"Shopee order\",\"category_hint\":\"Shopping\"}"
+    },
+    {
+      "id": "u076",
+      "text": "How much did I spend at Shopee this month?",
+      "expected_intent": "query_transactions",
+      "status": "validated",
+      "latency_ms": 1548,
+      "prompt_n": 515,
+      "cached_prompt_n": 486,
+      "prompt_ms": 839.986,
+      "predicted_n": 35,
+      "predicted_ms": 701.158,
+      "output_chars": 152,
+      "output_bytes": 152,
+      "output_sha256": "f17b02934352b965a1fa120e48e06155473267c1c1165b3a17934ad983519a91",
+      "baseline_byte_exact": null,
+      "fields": {
+        "turn_kind": {
+          "expected": "question",
+          "actual": "question",
+          "correct": true
+        },
+        "intent": {
+          "expected": "query_transactions",
+          "actual": "query_transactions",
+          "correct": true
+        },
+        "shape": {
+          "expected": "sum",
+          "actual": "sum",
+          "correct": true
+        },
+        "period_expr": {
+          "expected": "this month",
+          "actual": "this month",
+          "correct": true
+        },
+        "category_hint": {
+          "expected": null,
+          "actual": "Shopping",
+          "correct": false
+        },
+        "merchant_expr": {
+          "expected": "Shopee",
+          "actual": null,
+          "correct": false
+        }
+      },
+      "error": null,
+      "raw_json": "{\"intent\":\"query_transactions\",\"query\":{\"shape\":\"sum\",\"period_expr\":\"this month\",\"category_hint\":\"Shopping\",\"item_expr\":\"Shopee\",\"direction\":\"expense\"}}"
+    },
+    {
+      "id": "u026",
+      "text": "That Grab was transport, not food.",
+      "expected_intent": "categorize_transaction",
+      "status": "validated",
+      "latency_ms": 1701,
+      "prompt_n": 513,
+      "cached_prompt_n": 486,
+      "prompt_ms": 845.025,
+      "predicted_n": 39,
+      "predicted_ms": 848.564,
+      "output_chars": 174,
+      "output_bytes": 174,
+      "output_sha256": "0d3d1dc27674804d69433d3a1fc6e995b6228f4175ed003d9edef3b9d615365b",
+      "baseline_byte_exact": null,
+      "fields": {
+        "turn_kind": {
+          "expected": "correction",
+          "actual": "correction",
+          "correct": true
+        },
+        "intent": {
+          "expected": "categorize_transaction",
+          "actual": "categorize_transaction",
+          "correct": true
+        },
+        "merchant_expr": {
+          "expected": "Grab",
+          "actual": "Grab",
+          "correct": true
+        },
+        "category_hint": {
+          "expected": "Transport",
+          "actual": "Transport",
+          "correct": true
+        },
+        "negated_category_hint": {
+          "expected": "Food & Drink",
+          "actual": "Food & Drink",
+          "correct": true
+        }
+      },
+      "error": null,
+      "raw_json": "{\"intent\":\"categorize_transaction\",\"target\":{\"reference\":\"descriptor\",\"merchant_expr\":\"Grab\"},\"category_hint\":\"Transport\",\"negated_category_hint\":\"Food & Drink\",\"teach\":true}"
+    },
+    {
+      "id": "u005",
+      "text": "Spent sixteen fifty at ZUS Coffee.",
+      "expected_intent": "create_transaction",
+      "status": "validated",
+      "latency_ms": 1602,
+      "prompt_n": 514,
+      "cached_prompt_n": 486,
+      "prompt_ms": 851.635,
+      "predicted_n": 36,
+      "predicted_ms": 734.211,
+      "output_chars": 157,
+      "output_bytes": 157,
+      "output_sha256": "94f64baf3a936bc0ded71d77bd0824db1a9896faddb808acf1a3fdf45dddb1ca",
+      "baseline_byte_exact": null,
+      "fields": {
+        "turn_kind": {
+          "expected": "statement",
+          "actual": "statement",
+          "correct": true
+        },
+        "intent": {
+          "expected": "create_transaction",
+          "actual": "create_transaction",
+          "correct": true
+        },
+        "amount_expr": {
+          "expected": "sixteen fifty",
+          "actual": "sixteen fifty",
+          "correct": true
+        },
+        "direction": {
+          "expected": "expense",
+          "actual": "expense",
+          "correct": true
+        },
+        "merchant_expr": {
+          "expected": "ZUS Coffee",
+          "actual": "ZUS",
+          "correct": false
+        },
+        "item_expr": {
+          "expected": null,
+          "actual": "coffee",
+          "correct": false
+        },
+        "category_hint": {
+          "expected": "Food & Drink",
+          "actual": "Food & Drink",
+          "correct": true
+        },
+        "date_expr": {
+          "expected": null,
+          "actual": null,
+          "correct": true
+        }
+      },
+      "error": null,
+      "raw_json": "{\"intent\":\"create_transaction\",\"amount_expr\":\"sixteen fifty\",\"direction\":\"expense\",\"merchant_expr\":\"ZUS\",\"item_expr\":\"coffee\",\"category_hint\":\"Food & Drink\"}"
+    },
+    {
+      "id": "u039",
+      "text": "Remove the previous transaction.",
+      "expected_intent": "delete_transaction",
+      "status": "validated",
+      "latency_ms": 1119,
+      "prompt_n": 510,
+      "cached_prompt_n": 486,
+      "prompt_ms": 794.568,
+      "predicted_n": 18,
+      "predicted_ms": 303.381,
+      "output_chars": 94,
+      "output_bytes": 94,
+      "output_sha256": "90f2d168ee509b1766a3c646017218f40a83f23f2cddafa7552493ed0832d8c2",
+      "baseline_byte_exact": null,
+      "fields": {
+        "turn_kind": {
+          "expected": "statement",
+          "actual": "statement",
+          "correct": true
+        },
+        "intent": {
+          "expected": "delete_transaction",
+          "actual": "delete_transaction",
+          "correct": true
+        },
+        "reference": {
+          "expected": "previous",
+          "actual": "descriptor",
+          "correct": false
+        },
+        "reason_hint": {
+          "expected": null,
+          "actual": null,
+          "correct": true
+        }
+      },
+      "error": null,
+      "raw_json": "{\"intent\":\"delete_transaction\",\"target\":{\"reference\":\"descriptor\",\"merchant_expr\":\"previous\"}}"
+    },
+    {
+      "id": "u058",
+      "text": "The first one.",
+      "expected_intent": "answer_clarification",
+      "status": "validated",
+      "latency_ms": 1183,
+      "prompt_n": 518,
+      "cached_prompt_n": 486,
+      "prompt_ms": 806.274,
+      "predicted_n": 21,
+      "predicted_ms": 359.328,
+      "output_chars": 73,
+      "output_bytes": 73,
+      "output_sha256": "0361954c74986b11cf45783305273876c0f7cecf83afd7e2f05a53a0fcffdff8",
+      "baseline_byte_exact": null,
+      "fields": {
+        "turn_kind": {
+          "expected": "answer",
+          "actual": "answer",
+          "correct": true
+        },
+        "intent": {
+          "expected": "answer_clarification",
+          "actual": "answer_clarification",
+          "correct": true
+        },
+        "choice_ordinal": {
+          "expected": 1,
+          "actual": 1,
+          "correct": true
+        },
+        "polarity": {
+          "expected": "neither",
+          "actual": "neither",
+          "correct": true
+        }
+      },
+      "error": null,
+      "raw_json": "{\"intent\":\"answer_clarification\",\"choice_ordinal\":1,\"polarity\":\"neither\"}"
+    },
+    {
+      "id": "u054",
+      "text": "Remember Shopee is shopping.",
+      "expected_intent": "teach_memory",
+      "status": "validated",
+      "latency_ms": 1229,
+      "prompt_n": 508,
+      "cached_prompt_n": 488,
+      "prompt_ms": 788.144,
+      "predicted_n": 24,
+      "predicted_ms": 421.873,
+      "output_chars": 94,
+      "output_bytes": 94,
+      "output_sha256": "3545b7bb369047d29967bd84284117a648688393e2afee99d60c03320d9615c3",
+      "baseline_byte_exact": null,
+      "fields": {
+        "turn_kind": {
+          "expected": "statement",
+          "actual": "statement",
+          "correct": true
+        },
+        "intent": {
+          "expected": "teach_memory",
+          "actual": "teach_memory",
+          "correct": true
+        },
+        "kind": {
+          "expected": "merchant",
+          "actual": "merchant",
+          "correct": true
+        },
+        "surface_expr": {
+          "expected": "Shopee",
+          "actual": "Shopee",
+          "correct": true
+        },
+        "category_hint": {
+          "expected": "Shopping",
+          "actual": "Shopping",
+          "correct": true
+        }
+      },
+      "error": null,
+      "raw_json": "{\"intent\":\"teach_memory\",\"kind\":\"merchant\",\"surface_expr\":\"Shopee\",\"category_hint\":\"Shopping\"}"
+    },
+    {
+      "id": "u045",
+      "text": "What did I spend the most on last month?",
+      "expected_intent": "query_transactions",
+      "status": "clarification_needed",
+      "latency_ms": 1456,
+      "prompt_n": 513,
+      "cached_prompt_n": 488,
+      "prompt_ms": 789.547,
+      "predicted_n": 36,
+      "predicted_ms": 647.659,
+      "output_chars": 165,
+      "output_bytes": 165,
+      "output_sha256": "7a813ecf6fddf5cf1dbdde0b7beead0b12aefbf5f41ce95080d48165d2e66198",
+      "baseline_byte_exact": null,
+      "fields": {
+        "turn_kind": {
+          "expected": "question",
+          "actual": null,
+          "correct": false
+        },
+        "intent": {
+          "expected": "query_transactions",
+          "actual": null,
+          "correct": false
+        },
+        "shape": {
+          "expected": "top_categories",
+          "actual": null,
+          "correct": false
+        },
+        "period_expr": {
+          "expected": "last month",
+          "actual": null,
+          "correct": false
+        },
+        "category_hint": {
+          "expected": null,
+          "actual": null,
+          "correct": true
+        },
+        "merchant_expr": {
+          "expected": null,
+          "actual": null,
+          "correct": true
+        }
+      },
+      "error": "an extracted expression is not a transcript substring",
+      "raw_json": "{\"intent\":\"query_transactions\",\"query\":{\"shape\":\"top_categories\",\"period_expr\":\"last month\",\"category_hint\":\"Food & Drink\",\"item_expr\":\"food\",\"direction\":\"expense\"}}"
+    },
+    {
+      "id": "u080",
+      "text": "What do I spend the most on this year?",
+      "expected_intent": "query_transactions",
+      "status": "clarification_needed",
+      "latency_ms": 1451,
+      "prompt_n": 513,
+      "cached_prompt_n": 488,
+      "prompt_ms": 792.605,
+      "predicted_n": 36,
+      "predicted_ms": 640.409,
+      "output_chars": 164,
+      "output_bytes": 164,
+      "output_sha256": "0d3ce7a1b488f093491f824ea3169b72297dcc71571193d9cc47c08853d1a9ca",
+      "baseline_byte_exact": null,
+      "fields": {
+        "turn_kind": {
+          "expected": "question",
+          "actual": null,
+          "correct": false
+        },
+        "intent": {
+          "expected": "query_transactions",
+          "actual": null,
+          "correct": false
+        },
+        "shape": {
+          "expected": "top_categories",
+          "actual": null,
+          "correct": false
+        },
+        "period_expr": {
+          "expected": "this year",
+          "actual": null,
+          "correct": false
+        },
+        "category_hint": {
+          "expected": null,
+          "actual": null,
+          "correct": true
+        },
+        "merchant_expr": {
+          "expected": null,
+          "actual": null,
+          "correct": true
+        }
+      },
+      "error": "an extracted expression is not a transcript substring",
+      "raw_json": "{\"intent\":\"query_transactions\",\"query\":{\"shape\":\"top_categories\",\"period_expr\":\"this year\",\"category_hint\":\"Food & Drink\",\"item_expr\":\"food\",\"direction\":\"expense\"}}"
+    },
+    {
+      "id": "u029",
+      "text": "The Shopee one belongs in Shopping.",
+      "expected_intent": "categorize_transaction",
+      "status": "validated",
+      "latency_ms": 1542,
+      "prompt_n": 510,
+      "cached_prompt_n": 488,
+      "prompt_ms": 787.72,
+      "predicted_n": 41,
+      "predicted_ms": 737.398,
+      "output_chars": 175,
+      "output_bytes": 175,
+      "output_sha256": "0c9bfb706285a70fbc97eca17a905ccd66227e8d34ff82af57538c7f6a8a4f3c",
+      "baseline_byte_exact": null,
+      "fields": {
+        "turn_kind": {
+          "expected": "correction",
+          "actual": "correction",
+          "correct": true
+        },
+        "intent": {
+          "expected": "categorize_transaction",
+          "actual": "categorize_transaction",
+          "correct": true
+        },
+        "merchant_expr": {
+          "expected": "Shopee",
+          "actual": "Shopee",
+          "correct": true
+        },
+        "category_hint": {
+          "expected": "Shopping",
+          "actual": "Shopping",
+          "correct": true
+        },
+        "negated_category_hint": {
+          "expected": null,
+          "actual": "Food & Drink",
+          "correct": false
+        }
+      },
+      "error": null,
+      "raw_json": "{\"intent\":\"categorize_transaction\",\"target\":{\"reference\":\"descriptor\",\"merchant_expr\":\"Shopee\"},\"category_hint\":\"Shopping\",\"negated_category_hint\":\"Food & Drink\",\"teach\":true}"
+    },
+    {
+      "id": "u018",
+      "text": "Change the previous transaction to forty ringgit.",
+      "expected_intent": "update_transaction",
+      "status": "validated",
+      "latency_ms": 1205,
+      "prompt_n": 512,
+      "cached_prompt_n": 488,
+      "prompt_ms": 788.359,
+      "predicted_n": 23,
+      "predicted_ms": 397.531,
+      "output_chars": 107,
+      "output_bytes": 107,
+      "output_sha256": "03a923d3eb33e44b4aec2c90b703cff88f61dba4328cce98d72f0d9abc4a321e",
+      "baseline_byte_exact": null,
+      "fields": {
+        "turn_kind": {
+          "expected": "correction",
+          "actual": "correction",
+          "correct": true
+        },
+        "intent": {
+          "expected": "update_transaction",
+          "actual": "update_transaction",
+          "correct": true
+        },
+        "reference": {
+          "expected": "previous",
+          "actual": "previous",
+          "correct": true
+        },
+        "amount_expr": {
+          "expected": "forty ringgit",
+          "actual": "forty ringgit",
+          "correct": true
+        }
+      },
+      "error": null,
+      "raw_json": "{\"intent\":\"update_transaction\",\"target\":{\"reference\":\"previous\"},\"changes\":{\"amount_expr\":\"forty ringgit\"}}"
+    },
+    {
+      "id": "u057",
+      "text": "No.",
+      "expected_intent": "answer_clarification",
+      "status": "validated",
+      "latency_ms": 1045,
+      "prompt_n": 514,
+      "cached_prompt_n": 488,
+      "prompt_ms": 792.132,
+      "predicted_n": 14,
+      "predicted_ms": 234.752,
+      "output_chars": 51,
+      "output_bytes": 51,
+      "output_sha256": "d2607cb6c85d1dfdcfc294cb45694f63fd0894eb2c073716e37382db8c5fc25c",
+      "baseline_byte_exact": null,
+      "fields": {
+        "turn_kind": {
+          "expected": "answer",
+          "actual": "answer",
+          "correct": true
+        },
+        "intent": {
+          "expected": "answer_clarification",
+          "actual": "answer_clarification",
+          "correct": true
+        },
+        "choice_ordinal": {
+          "expected": null,
+          "actual": null,
+          "correct": true
+        },
+        "polarity": {
+          "expected": "deny",
+          "actual": "deny",
+          "correct": true
+        }
+      },
+      "error": null,
+      "raw_json": "{\"intent\":\"answer_clarification\",\"polarity\":\"deny\"}"
+    },
+    {
+      "id": "u009",
+      "text": "Bought groceries for sixty ringgit yesterday.",
+      "expected_intent": "create_transaction",
+      "status": "validated",
+      "latency_ms": 1506,
+      "prompt_n": 512,
+      "cached_prompt_n": 488,
+      "prompt_ms": 792.35,
+      "predicted_n": 37,
+      "predicted_ms": 696.463,
+      "output_chars": 159,
+      "output_bytes": 159,
+      "output_sha256": "996301d7546f8356021491c3eebf563ed6c7f0c586a71a439b489da082503627",
+      "baseline_byte_exact": null,
+      "fields": {
+        "turn_kind": {
+          "expected": "statement",
+          "actual": "statement",
+          "correct": true
+        },
+        "intent": {
+          "expected": "create_transaction",
+          "actual": "create_transaction",
+          "correct": true
+        },
+        "amount_expr": {
+          "expected": "sixty ringgit",
+          "actual": "sixty ringgit",
+          "correct": true
+        },
+        "direction": {
+          "expected": "expense",
+          "actual": "expense",
+          "correct": true
+        },
+        "merchant_expr": {
+          "expected": null,
+          "actual": null,
+          "correct": true
+        },
+        "item_expr": {
+          "expected": "groceries",
+          "actual": "groceries",
+          "correct": true
+        },
+        "category_hint": {
+          "expected": "Groceries",
+          "actual": "Groceries",
+          "correct": true
+        },
+        "date_expr": {
+          "expected": "yesterday",
+          "actual": "yesterday",
+          "correct": true
+        }
+      },
+      "error": null,
+      "raw_json": "{\"intent\":\"create_transaction\",\"amount_expr\":\"sixty ringgit\",\"direction\":\"expense\",\"item_expr\":\"groceries\",\"category_hint\":\"Groceries\",\"date_expr\":\"yesterday\"}"
+    },
+    {
+      "id": "u060",
+      "text": "Play some music.",
+      "expected_intent": "unsupported",
+      "status": "validated",
+      "latency_ms": 1107,
+      "prompt_n": 507,
+      "cached_prompt_n": 488,
+      "prompt_ms": 839.01,
+      "predicted_n": 14,
+      "predicted_ms": 258.21,
+      "output_chars": 64,
+      "output_bytes": 64,
+      "output_sha256": "e153bd883a540a89d6796275c8549cdf8efb15e38d60f784962430419bf13d6c",
+      "baseline_byte_exact": null,
+      "fields": {
+        "turn_kind": {
+          "expected": "question",
+          "actual": "statement",
+          "correct": false
+        },
+        "intent": {
+          "expected": "unsupported",
+          "actual": "unsupported",
+          "correct": true
+        }
+      },
+      "error": null,
+      "raw_json": "{\"intent\":\"unsupported\",\"reason_hint\":\"not a financial request\"}"
+    },
+    {
+      "id": "u004",
+      "text": "Got a refund of twenty-eight fifty today.",
+      "expected_intent": "create_transaction",
+      "status": "validated",
+      "latency_ms": 1290,
+      "prompt_n": 512,
+      "cached_prompt_n": 488,
+      "prompt_ms": 807.352,
+      "predicted_n": 26,
+      "predicted_ms": 464.258,
+      "output_chars": 135,
+      "output_bytes": 135,
+      "output_sha256": "24fe73e8a31a1bd12227128bb4a63826130395af2746bafa4a88d148e2088911",
+      "baseline_byte_exact": null,
+      "fields": {
+        "turn_kind": {
+          "expected": "statement",
+          "actual": "correction",
+          "correct": false
+        },
+        "intent": {
+          "expected": "create_transaction",
+          "actual": "update_transaction",
+          "correct": false
+        },
+        "amount_expr": {
+          "expected": "twenty-eight fifty",
+          "actual": "twenty-eight fifty",
+          "correct": true
+        },
+        "direction": {
+          "expected": "refund",
+          "actual": null,
+          "correct": false
+        },
+        "merchant_expr": {
+          "expected": null,
+          "actual": null,
+          "correct": true
+        },
+        "item_expr": {
+          "expected": null,
+          "actual": null,
+          "correct": true
+        },
+        "category_hint": {
+          "expected": "Other",
+          "actual": null,
+          "correct": false
+        },
+        "date_expr": {
+          "expected": "today",
+          "actual": null,
+          "correct": false
+        }
+      },
+      "error": null,
+      "raw_json": "{\"intent\":\"update_transaction\",\"target\":{\"reference\":\"descriptor\"},\"changes\":{\"amount_expr\":\"twenty-eight fifty\",\"direction\":\"refund\"}}"
+    },
+    {
+      "id": "u042",
+      "text": "How many times did I go to ZUS?",
+      "expected_intent": "query_transactions",
+      "status": "validated",
+      "latency_ms": 1149,
+      "prompt_n": 513,
+      "cached_prompt_n": 488,
+      "prompt_ms": 789.963,
+      "predicted_n": 21,
+      "predicted_ms": 352.518,
+      "output_chars": 73,
+      "output_bytes": 73,
+      "output_sha256": "0361954c74986b11cf45783305273876c0f7cecf83afd7e2f05a53a0fcffdff8",
+      "baseline_byte_exact": null,
+      "fields": {
+        "turn_kind": {
+          "expected": "question",
+          "actual": "answer",
+          "correct": false
+        },
+        "intent": {
+          "expected": "query_transactions",
+          "actual": "answer_clarification",
+          "correct": false
+        },
+        "shape": {
+          "expected": "count",
+          "actual": null,
+          "correct": false
+        },
+        "period_expr": {
+          "expected": null,
+          "actual": null,
+          "correct": true
+        },
+        "category_hint": {
+          "expected": null,
+          "actual": null,
+          "correct": true
+        },
+        "merchant_expr": {
+          "expected": "ZUS",
+          "actual": null,
+          "correct": false
+        }
+      },
+      "error": null,
+      "raw_json": "{\"intent\":\"answer_clarification\",\"choice_ordinal\":1,\"polarity\":\"neither\"}"
+    },
+    {
+      "id": "u061",
+      "text": "Tell me a joke.",
+      "expected_intent": "unsupported",
+      "status": "validated",
+      "latency_ms": 1019,
+      "prompt_n": 508,
+      "cached_prompt_n": 488,
+      "prompt_ms": 768.334,
+      "predicted_n": 14,
+      "predicted_ms": 244.365,
+      "output_chars": 64,
+      "output_bytes": 64,
+      "output_sha256": "e153bd883a540a89d6796275c8549cdf8efb15e38d60f784962430419bf13d6c",
+      "baseline_byte_exact": null,
+      "fields": {
+        "turn_kind": {
+          "expected": "question",
+          "actual": "statement",
+          "correct": false
+        },
+        "intent": {
+          "expected": "unsupported",
+          "actual": "unsupported",
+          "correct": true
+        }
+      },
+      "error": null,
+      "raw_json": "{\"intent\":\"unsupported\",\"reason_hint\":\"not a financial request\"}"
+    },
+    {
+      "id": "u007",
+      "text": "Paid twelve ringgit for nasi lemak.",
+      "expected_intent": "create_transaction",
+      "status": "validated",
+      "latency_ms": 1393,
+      "prompt_n": 511,
+      "cached_prompt_n": 488,
+      "prompt_ms": 816.532,
+      "predicted_n": 32,
+      "predicted_ms": 569.631,
+      "output_chars": 140,
+      "output_bytes": 140,
+      "output_sha256": "a50b2bcd8f1ac0b53dc446e4e517e9c42e9001c252b3d9edcd7a0c20c572c00e",
+      "baseline_byte_exact": null,
+      "fields": {
+        "turn_kind": {
+          "expected": "statement",
+          "actual": "statement",
+          "correct": true
+        },
+        "intent": {
+          "expected": "create_transaction",
+          "actual": "create_transaction",
+          "correct": true
+        },
+        "amount_expr": {
+          "expected": "twelve ringgit",
+          "actual": "twelve ringgit",
+          "correct": true
+        },
+        "direction": {
+          "expected": "expense",
+          "actual": "expense",
+          "correct": true
+        },
+        "merchant_expr": {
+          "expected": null,
+          "actual": null,
+          "correct": true
+        },
+        "item_expr": {
+          "expected": "nasi lemak",
+          "actual": "nasi lemak",
+          "correct": true
+        },
+        "category_hint": {
+          "expected": "Food & Drink",
+          "actual": "Food & Drink",
+          "correct": true
+        },
+        "date_expr": {
+          "expected": null,
+          "actual": null,
+          "correct": true
+        }
+      },
+      "error": null,
+      "raw_json": "{\"intent\":\"create_transaction\",\"amount_expr\":\"twelve ringgit\",\"direction\":\"expense\",\"item_expr\":\"nasi lemak\",\"category_hint\":\"Food & Drink\"}"
+    },
+    {
+      "id": "u065",
+      "text": "Open the calendar.",
+      "expected_intent": "unsupported",
+      "status": "validated",
+      "latency_ms": 1068,
+      "prompt_n": 507,
+      "cached_prompt_n": 488,
+      "prompt_ms": 822.155,
+      "predicted_n": 14,
+      "predicted_ms": 239.858,
+      "output_chars": 64,
+      "output_bytes": 64,
+      "output_sha256": "e153bd883a540a89d6796275c8549cdf8efb15e38d60f784962430419bf13d6c",
+      "baseline_byte_exact": null,
+      "fields": {
+        "turn_kind": {
+          "expected": "question",
+          "actual": "statement",
+          "correct": false
+        },
+        "intent": {
+          "expected": "unsupported",
+          "actual": "unsupported",
+          "correct": true
+        }
+      },
+      "error": null,
+      "raw_json": "{\"intent\":\"unsupported\",\"reason_hint\":\"not a financial request\"}"
+    },
+    {
+      "id": "u035",
+      "text": "Remove that previous transaction.",
+      "expected_intent": "delete_transaction",
+      "status": "validated",
+      "latency_ms": 1246,
+      "prompt_n": 508,
+      "cached_prompt_n": 488,
+      "prompt_ms": 833.209,
+      "predicted_n": 23,
+      "predicted_ms": 406.058,
+      "output_chars": 120,
+      "output_bytes": 120,
+      "output_sha256": "5523cb099d30cd47d3dc384c42a93a82d4d04b2320fd3c7c25a0453bbf80e5a6",
+      "baseline_byte_exact": null,
+      "fields": {
+        "turn_kind": {
+          "expected": "statement",
+          "actual": "statement",
+          "correct": true
+        },
+        "intent": {
+          "expected": "delete_transaction",
+          "actual": "delete_transaction",
+          "correct": true
+        },
+        "reference": {
+          "expected": "previous",
+          "actual": "descriptor",
+          "correct": false
+        },
+        "reason_hint": {
+          "expected": "mistake",
+          "actual": "duplicate",
+          "correct": false
+        }
+      },
+      "error": null,
+      "raw_json": "{\"intent\":\"delete_transaction\",\"target\":{\"reference\":\"descriptor\",\"merchant_expr\":\"previous\"},\"reason_hint\":\"duplicate\"}"
+    },
+    {
+      "id": "u021",
+      "text": "Update that to fifty.",
+      "expected_intent": "update_transaction",
+      "status": "validated",
+      "latency_ms": 1197,
+      "prompt_n": 508,
+      "cached_prompt_n": 488,
+      "prompt_ms": 819.81,
+      "predicted_n": 21,
+      "predicted_ms": 370.516,
+      "output_chars": 101,
+      "output_bytes": 101,
+      "output_sha256": "b9de386c0b155c052569e100906c9ac4a05e6abb9c90ed586292319157cfe6c7",
+      "baseline_byte_exact": null,
+      "fields": {
+        "turn_kind": {
+          "expected": "correction",
+          "actual": "correction",
+          "correct": true
+        },
+        "intent": {
+          "expected": "update_transaction",
+          "actual": "update_transaction",
+          "correct": true
+        },
+        "reference": {
+          "expected": "previous",
+          "actual": "descriptor",
+          "correct": false
+        },
+        "amount_expr": {
+          "expected": "fifty",
+          "actual": "fifty",
+          "correct": true
+        }
+      },
+      "error": null,
+      "raw_json": "{\"intent\":\"update_transaction\",\"target\":{\"reference\":\"descriptor\"},\"changes\":{\"amount_expr\":\"fifty\"}}"
+    },
+    {
+      "id": "u014",
+      "text": "Cashback was six ringgit yesterday.",
+      "expected_intent": "create_transaction",
+      "status": "validated",
+      "latency_ms": 1397,
+      "prompt_n": 511,
+      "cached_prompt_n": 488,
+      "prompt_ms": 848.132,
+      "predicted_n": 31,
+      "predicted_ms": 541.881,
+      "output_chars": 136,
+      "output_bytes": 136,
+      "output_sha256": "9652116554b75cb8c0f0239b783272aa1dcba5012b91db419e1b837855b0993b",
+      "baseline_byte_exact": null,
+      "fields": {
+        "turn_kind": {
+          "expected": "statement",
+          "actual": "statement",
+          "correct": true
+        },
+        "intent": {
+          "expected": "create_transaction",
+          "actual": "create_transaction",
+          "correct": true
+        },
+        "amount_expr": {
+          "expected": "six ringgit",
+          "actual": "six ringgit",
+          "correct": true
+        },
+        "direction": {
+          "expected": "refund",
+          "actual": "expense",
+          "correct": false
+        },
+        "merchant_expr": {
+          "expected": null,
+          "actual": null,
+          "correct": true
+        },
+        "item_expr": {
+          "expected": null,
+          "actual": null,
+          "correct": true
+        },
+        "category_hint": {
+          "expected": "Other",
+          "actual": "Food & Drink",
+          "correct": false
+        },
+        "date_expr": {
+          "expected": "yesterday",
+          "actual": "yesterday",
+          "correct": true
+        }
+      },
+      "error": null,
+      "raw_json": "{\"intent\":\"create_transaction\",\"amount_expr\":\"six ringgit\",\"direction\":\"expense\",\"category_hint\":\"Food & Drink\",\"date_expr\":\"yesterday\"}"
+    },
+    {
+      "id": "u064",
+      "text": "Set a timer for ten minutes.",
+      "expected_intent": "unsupported",
+      "status": "validated",
+      "latency_ms": 1098,
+      "prompt_n": 510,
+      "cached_prompt_n": 488,
+      "prompt_ms": 837.982,
+      "predicted_n": 14,
+      "predicted_ms": 251.869,
+      "output_chars": 64,
+      "output_bytes": 64,
+      "output_sha256": "e153bd883a540a89d6796275c8549cdf8efb15e38d60f784962430419bf13d6c",
+      "baseline_byte_exact": null,
+      "fields": {
+        "turn_kind": {
+          "expected": "question",
+          "actual": "statement",
+          "correct": false
+        },
+        "intent": {
+          "expected": "unsupported",
+          "actual": "unsupported",
+          "correct": true
+        }
+      },
+      "error": null,
+      "raw_json": "{\"intent\":\"unsupported\",\"reason_hint\":\"not a financial request\"}"
+    },
+    {
+      "id": "u033",
+      "text": "Remove the McDonald's one, I entered it twice.",
+      "expected_intent": "delete_transaction",
+      "status": "validated",
+      "latency_ms": 1324,
+      "prompt_n": 514,
+      "cached_prompt_n": 488,
+      "prompt_ms": 832.7,
+      "predicted_n": 25,
+      "predicted_ms": 468.938,
+      "output_chars": 122,
+      "output_bytes": 122,
+      "output_sha256": "174d3a8e1a08fc2eaf5da1d34431cf60951252f0eec444696736a486d617520e",
+      "baseline_byte_exact": null,
+      "fields": {
+        "turn_kind": {
+          "expected": "statement",
+          "actual": "statement",
+          "correct": true
+        },
+        "intent": {
+          "expected": "delete_transaction",
+          "actual": "delete_transaction",
+          "correct": true
+        },
+        "merchant_expr": {
+          "expected": "McDonald's",
+          "actual": "McDonald's",
+          "correct": true
+        },
+        "reason_hint": {
+          "expected": "duplicate",
+          "actual": "duplicate",
+          "correct": true
+        }
+      },
+      "error": null,
+      "raw_json": "{\"intent\":\"delete_transaction\",\"target\":{\"reference\":\"descriptor\",\"merchant_expr\":\"McDonald's\"},\"reason_hint\":\"duplicate\"}"
+    },
+    {
+      "id": "u025",
+      "text": "That Grab was food, not transport.",
+      "expected_intent": "categorize_transaction",
+      "status": "validated",
+      "latency_ms": 1538,
+      "prompt_n": 511,
+      "cached_prompt_n": 488,
+      "prompt_ms": 852.233,
+      "predicted_n": 39,
+      "predicted_ms": 669.596,
+      "output_chars": 174,
+      "output_bytes": 174,
+      "output_sha256": "c4ec3251a38ef85517b287fa4c0a7195c30429b97a51c353049de52f96e70cfa",
+      "baseline_byte_exact": null,
+      "fields": {
+        "turn_kind": {
+          "expected": "correction",
+          "actual": "correction",
+          "correct": true
+        },
+        "intent": {
+          "expected": "categorize_transaction",
+          "actual": "categorize_transaction",
+          "correct": true
+        },
+        "merchant_expr": {
+          "expected": "Grab",
+          "actual": "Grab",
+          "correct": true
+        },
+        "category_hint": {
+          "expected": "Food & Drink",
+          "actual": "Food & Drink",
+          "correct": true
+        },
+        "negated_category_hint": {
+          "expected": "Transport",
+          "actual": "Transport",
+          "correct": true
+        }
+      },
+      "error": null,
+      "raw_json": "{\"intent\":\"categorize_transaction\",\"target\":{\"reference\":\"descriptor\",\"merchant_expr\":\"Grab\"},\"category_hint\":\"Food & Drink\",\"negated_category_hint\":\"Transport\",\"teach\":true}"
+    },
+    {
+      "id": "u068",
+      "text": "How many purchases did I make this week?",
+      "expected_intent": "query_transactions",
+      "status": "validated",
+      "latency_ms": 1401,
+      "prompt_n": 512,
+      "cached_prompt_n": 488,
+      "prompt_ms": 795.265,
+      "predicted_n": 36,
+      "predicted_ms": 598.935,
+      "output_chars": 160,
+      "output_bytes": 160,
+      "output_sha256": "d28e79a0f92f8dcfa227d9ece68758ff5ce5c057eb79ec86722b24016b97e68a",
+      "baseline_byte_exact": null,
+      "fields": {
+        "turn_kind": {
+          "expected": "question",
+          "actual": "question",
+          "correct": true
+        },
+        "intent": {
+          "expected": "query_transactions",
+          "actual": "query_transactions",
+          "correct": true
+        },
+        "shape": {
+          "expected": "count",
+          "actual": "count",
+          "correct": true
+        },
+        "period_expr": {
+          "expected": "this week",
+          "actual": "this week",
+          "correct": true
+        },
+        "category_hint": {
+          "expected": null,
+          "actual": "Food & Drink",
+          "correct": false
+        },
+        "merchant_expr": {
+          "expected": null,
+          "actual": null,
+          "correct": true
+        }
+      },
+      "error": null,
+      "raw_json": "{\"intent\":\"query_transactions\",\"query\":{\"shape\":\"count\",\"period_expr\":\"this week\",\"category_hint\":\"Food & Drink\",\"item_expr\":\"purchases\",\"direction\":\"expense\"}}"
+    },
+    {
+      "id": "u046",
+      "text": "Where do I spend the most this year?",
+      "expected_intent": "query_transactions",
+      "status": "clarification_needed",
+      "latency_ms": 1522,
+      "prompt_n": 512,
+      "cached_prompt_n": 488,
+      "prompt_ms": 817.357,
+      "predicted_n": 38,
+      "predicted_ms": 697.76,
+      "output_chars": 163,
+      "output_bytes": 163,
+      "output_sha256": "4613b1b37367577f4dd5f6d1636e63b81ba99502c1e3482e8e21be6dad6e6a65",
+      "baseline_byte_exact": null,
+      "fields": {
+        "turn_kind": {
+          "expected": "question",
+          "actual": null,
+          "correct": false
+        },
+        "intent": {
+          "expected": "query_transactions",
+          "actual": null,
+          "correct": false
+        },
+        "shape": {
+          "expected": "top_merchants",
+          "actual": null,
+          "correct": false
+        },
+        "period_expr": {
+          "expected": "this year",
+          "actual": null,
+          "correct": false
+        },
+        "category_hint": {
+          "expected": null,
+          "actual": null,
+          "correct": true
+        },
+        "merchant_expr": {
+          "expected": null,
+          "actual": null,
+          "correct": true
+        }
+      },
+      "error": "an extracted expression is not a transcript substring",
+      "raw_json": "{\"intent\":\"query_transactions\",\"query\":{\"shape\":\"top_merchants\",\"period_expr\":\"this year\",\"category_hint\":\"Food & Drink\",\"item_expr\":\"food\",\"direction\":\"expense\"}}"
+    },
+    {
+      "id": "u030",
+      "text": "That McDonald's was Food & Drink.",
+      "expected_intent": "categorize_transaction",
+      "status": "validated",
+      "latency_ms": 1626,
+      "prompt_n": 511,
+      "cached_prompt_n": 488,
+      "prompt_ms": 874.795,
+      "predicted_n": 41,
+      "predicted_ms": 743.921,
+      "output_chars": 180,
+      "output_bytes": 180,
+      "output_sha256": "67ab4ffd5b69007005bab8aa1a58bf18005e22349345fa1276327e38d4407384",
+      "baseline_byte_exact": null,
+      "fields": {
+        "turn_kind": {
+          "expected": "correction",
+          "actual": "correction",
+          "correct": true
+        },
+        "intent": {
+          "expected": "categorize_transaction",
+          "actual": "categorize_transaction",
+          "correct": true
+        },
+        "merchant_expr": {
+          "expected": "McDonald's",
+          "actual": "McDonald's",
+          "correct": true
+        },
+        "category_hint": {
+          "expected": "Food & Drink",
+          "actual": "Food & Drink",
+          "correct": true
+        },
+        "negated_category_hint": {
+          "expected": null,
+          "actual": "Transport",
+          "correct": false
+        }
+      },
+      "error": null,
+      "raw_json": "{\"intent\":\"categorize_transaction\",\"target\":{\"reference\":\"descriptor\",\"merchant_expr\":\"McDonald's\"},\"category_hint\":\"Food & Drink\",\"negated_category_hint\":\"Transport\",\"teach\":true}"
+    },
+    {
+      "id": "u081",
+      "text": "Where did most of my money go last month?",
+      "expected_intent": "query_transactions",
+      "status": "validated",
+      "latency_ms": 1508,
+      "prompt_n": 513,
+      "cached_prompt_n": 488,
+      "prompt_ms": 871.043,
+      "predicted_n": 35,
+      "predicted_ms": 630.641,
+      "output_chars": 155,
+      "output_bytes": 155,
+      "output_sha256": "bbc6e424b7c9e8e60ce01ff0c3f8615502178d22bb7d7b3f9cfc834737e5b0c8",
+      "baseline_byte_exact": null,
+      "fields": {
+        "turn_kind": {
+          "expected": "question",
+          "actual": "question",
+          "correct": true
+        },
+        "intent": {
+          "expected": "query_transactions",
+          "actual": "query_transactions",
+          "correct": true
+        },
+        "shape": {
+          "expected": "top_merchants",
+          "actual": "sum",
+          "correct": false
+        },
+        "period_expr": {
+          "expected": "last month",
+          "actual": "last month",
+          "correct": true
+        },
+        "category_hint": {
+          "expected": null,
+          "actual": "Food & Drink",
+          "correct": false
+        },
+        "merchant_expr": {
+          "expected": null,
+          "actual": null,
+          "correct": true
+        }
+      },
+      "error": null,
+      "raw_json": "{\"intent\":\"query_transactions\",\"query\":{\"shape\":\"sum\",\"period_expr\":\"last month\",\"category_hint\":\"Food & Drink\",\"item_expr\":\"money\",\"direction\":\"expense\"}}"
+    },
+    {
+      "id": "u013",
+      "text": "Received three hundred ringgit today.",
+      "expected_intent": "create_transaction",
+      "status": "validated",
+      "latency_ms": 1195,
+      "prompt_n": 510,
+      "cached_prompt_n": 488,
+      "prompt_ms": 855.27,
+      "predicted_n": 19,
+      "predicted_ms": 333.472,
+      "output_chars": 91,
+      "output_bytes": 91,
+      "output_sha256": "1449d4d09acfddb28da0f2869873fa23be29963f7c378e92833d181c5bea77b2",
+      "baseline_byte_exact": null,
+      "fields": {
+        "turn_kind": {
+          "expected": "statement",
+          "actual": "statement",
+          "correct": true
+        },
+        "intent": {
+          "expected": "create_transaction",
+          "actual": "create_transaction",
+          "correct": true
+        },
+        "amount_expr": {
+          "expected": "three hundred ringgit",
+          "actual": "three hundred ringgit",
+          "correct": true
+        },
+        "direction": {
+          "expected": "income",
+          "actual": "expense",
+          "correct": false
+        },
+        "merchant_expr": {
+          "expected": null,
+          "actual": null,
+          "correct": true
+        },
+        "item_expr": {
+          "expected": null,
+          "actual": null,
+          "correct": true
+        },
+        "category_hint": {
+          "expected": "Income",
+          "actual": null,
+          "correct": false
+        },
+        "date_expr": {
+          "expected": "today",
+          "actual": null,
+          "correct": false
+        }
+      },
+      "error": null,
+      "raw_json": "{\"intent\":\"create_transaction\",\"amount_expr\":\"three hundred ringgit\",\"direction\":\"expense\"}"
+    },
+    {
+      "id": "u015",
+      "text": "GrabFood was twenty-two ringgit.",
+      "expected_intent": "create_transaction",
+      "status": "validated",
+      "latency_ms": 1495,
+      "prompt_n": 511,
+      "cached_prompt_n": 488,
+      "prompt_ms": 867.001,
+      "predicted_n": 32,
+      "predicted_ms": 620.239,
+      "output_chars": 142,
+      "output_bytes": 142,
+      "output_sha256": "336226dc71dc811094c72470d7e79b6c22ccf9a5693521b67004296708707d19",
+      "baseline_byte_exact": null,
+      "fields": {
+        "turn_kind": {
+          "expected": "statement",
+          "actual": "statement",
+          "correct": true
+        },
+        "intent": {
+          "expected": "create_transaction",
+          "actual": "create_transaction",
+          "correct": true
+        },
+        "amount_expr": {
+          "expected": "twenty-two ringgit",
+          "actual": "twenty-two ringgit",
+          "correct": true
+        },
+        "direction": {
+          "expected": "expense",
+          "actual": "expense",
+          "correct": true
+        },
+        "merchant_expr": {
+          "expected": "GrabFood",
+          "actual": null,
+          "correct": false
+        },
+        "item_expr": {
+          "expected": null,
+          "actual": "GrabFood",
+          "correct": false
+        },
+        "category_hint": {
+          "expected": "Food & Drink",
+          "actual": "Food & Drink",
+          "correct": true
+        },
+        "date_expr": {
+          "expected": null,
+          "actual": null,
+          "correct": true
+        }
+      },
+      "error": null,
+      "raw_json": "{\"intent\":\"create_transaction\",\"amount_expr\":\"twenty-two ringgit\",\"direction\":\"expense\",\"item_expr\":\"GrabFood\",\"category_hint\":\"Food & Drink\"}"
+    },
+    {
+      "id": "u085",
+      "text": "Neither one.",
+      "expected_intent": "answer_clarification",
+      "status": "validated",
+      "latency_ms": 1259,
+      "prompt_n": 515,
+      "cached_prompt_n": 488,
+      "prompt_ms": 852.976,
+      "predicted_n": 21,
+      "predicted_ms": 388.719,
+      "output_chars": 73,
+      "output_bytes": 73,
+      "output_sha256": "0361954c74986b11cf45783305273876c0f7cecf83afd7e2f05a53a0fcffdff8",
+      "baseline_byte_exact": null,
+      "fields": {
+        "turn_kind": {
+          "expected": "answer",
+          "actual": "answer",
+          "correct": true
+        },
+        "intent": {
+          "expected": "answer_clarification",
+          "actual": "answer_clarification",
+          "correct": true
+        },
+        "choice_ordinal": {
+          "expected": null,
+          "actual": 1,
+          "correct": false
+        },
+        "polarity": {
+          "expected": "neither",
+          "actual": "neither",
+          "correct": true
+        }
+      },
+      "error": null,
+      "raw_json": "{\"intent\":\"answer_clarification\",\"choice_ordinal\":1,\"polarity\":\"neither\"}"
+    },
+    {
+      "id": "u023",
+      "text": "Make that nine ringgit instead.",
+      "expected_intent": "update_transaction",
+      "status": "validated",
+      "latency_ms": 1267,
+      "prompt_n": 510,
+      "cached_prompt_n": 488,
+      "prompt_ms": 862.31,
+      "predicted_n": 22,
+      "predicted_ms": 385.586,
+      "output_chars": 108,
+      "output_bytes": 108,
+      "output_sha256": "a88f5aaf4842b46b3a62487c33a45929b7cf6058c43a12e9dad4fbb7ca7e4b81",
+      "baseline_byte_exact": null,
+      "fields": {
+        "turn_kind": {
+          "expected": "correction",
+          "actual": "correction",
+          "correct": true
+        },
+        "intent": {
+          "expected": "update_transaction",
+          "actual": "update_transaction",
+          "correct": true
+        },
+        "reference": {
+          "expected": "previous",
+          "actual": "descriptor",
+          "correct": false
+        },
+        "amount_expr": {
+          "expected": "nine ringgit",
+          "actual": "nine ringgit",
+          "correct": true
+        }
+      },
+      "error": null,
+      "raw_json": "{\"intent\":\"update_transaction\",\"target\":{\"reference\":\"descriptor\"},\"changes\":{\"amount_expr\":\"nine ringgit\"}}"
+    },
+    {
+      "id": "u055",
+      "text": "The second one.",
+      "expected_intent": "answer_clarification",
+      "status": "validated",
+      "latency_ms": 1245,
+      "prompt_n": 516,
+      "cached_prompt_n": 488,
+      "prompt_ms": 858.438,
+      "predicted_n": 21,
+      "predicted_ms": 379.557,
+      "output_chars": 73,
+      "output_bytes": 73,
+      "output_sha256": "9461e33e117cb088d081aef592e1ece686bb5c1d20482c87f34bb172947c5838",
+      "baseline_byte_exact": null,
+      "fields": {
+        "turn_kind": {
+          "expected": "answer",
+          "actual": "answer",
+          "correct": true
+        },
+        "intent": {
+          "expected": "answer_clarification",
+          "actual": "answer_clarification",
+          "correct": true
+        },
+        "choice_ordinal": {
+          "expected": 2,
+          "actual": 2,
+          "correct": true
+        },
+        "polarity": {
+          "expected": "neither",
+          "actual": "neither",
+          "correct": true
+        }
+      },
+      "error": null,
+      "raw_json": "{\"intent\":\"answer_clarification\",\"choice_ordinal\":2,\"polarity\":\"neither\"}"
+    },
+    {
+      "id": "u049",
+      "text": "Remember that ZUS is usually coffee.",
+      "expected_intent": "teach_memory",
+      "status": "validated",
+      "latency_ms": 1413,
+      "prompt_n": 511,
+      "cached_prompt_n": 488,
+      "prompt_ms": 858.859,
+      "predicted_n": 30,
+      "predicted_ms": 536.63,
+      "output_chars": 123,
+      "output_bytes": 123,
+      "output_sha256": "c7136dd278d8de0183cb36d43ac80701940189d10f7d8dc79226db09c4bdb304",
+      "baseline_byte_exact": null,
+      "fields": {
+        "turn_kind": {
+          "expected": "statement",
+          "actual": "statement",
+          "correct": true
+        },
+        "intent": {
+          "expected": "teach_memory",
+          "actual": "teach_memory",
+          "correct": true
+        },
+        "kind": {
+          "expected": "merchant",
+          "actual": "merchant",
+          "correct": true
+        },
+        "surface_expr": {
+          "expected": "ZUS",
+          "actual": "ZUS",
+          "correct": true
+        },
+        "category_hint": {
+          "expected": "Food & Drink",
+          "actual": "Food & Drink",
+          "correct": true
+        }
+      },
+      "error": null,
+      "raw_json": "{\"intent\":\"teach_memory\",\"kind\":\"merchant\",\"surface_expr\":\"ZUS\",\"category_hint\":\"Food & Drink\",\"subcategory_hint\":\"Coffee\"}"
+    },
+    {
+      "id": "u074",
+      "text": "Compare my spending this month with last month.",
+      "expected_intent": "query_transactions",
+      "status": "validated",
+      "latency_ms": 1408,
+      "prompt_n": 512,
+      "cached_prompt_n": 488,
+      "prompt_ms": 862.301,
+      "predicted_n": 27,
+      "predicted_ms": 538.866,
+      "output_chars": 129,
+      "output_bytes": 129,
+      "output_sha256": "ac96500e310f501e6741ef2873b7267ec9c428af048db89e3dbf0e35104394ee",
+      "baseline_byte_exact": null,
+      "fields": {
+        "turn_kind": {
+          "expected": "question",
+          "actual": "question",
+          "correct": true
+        },
+        "intent": {
+          "expected": "query_transactions",
+          "actual": "query_transactions",
+          "correct": true
+        },
+        "shape": {
+          "expected": "compare_periods",
+          "actual": "compare_periods",
+          "correct": true
+        },
+        "period_expr": {
+          "expected": "this month",
+          "actual": "this month",
+          "correct": true
+        },
+        "compare_period_expr": {
+          "expected": "last month",
+          "actual": "last month",
+          "correct": true
+        },
+        "category_hint": {
+          "expected": null,
+          "actual": null,
+          "correct": true
+        },
+        "merchant_expr": {
+          "expected": null,
+          "actual": null,
+          "correct": true
+        }
+      },
+      "error": null,
+      "raw_json": "{\"intent\":\"query_transactions\",\"query\":{\"shape\":\"compare_periods\",\"period_expr\":\"this month\",\"compare_period_expr\":\"last month\"}}"
+    },
+    {
+      "id": "u011",
+      "text": "Parking was five ringgit today.",
+      "expected_intent": "create_transaction",
+      "status": "validated",
+      "latency_ms": 1342,
+      "prompt_n": 510,
+      "cached_prompt_n": 488,
+      "prompt_ms": 828.517,
+      "predicted_n": 28,
+      "predicted_ms": 506.307,
+      "output_chars": 130,
+      "output_bytes": 130,
+      "output_sha256": "d732dad2068fd72b107bd653349afbb6d534a2eb21d0d16c93027eb128ebc3e8",
+      "baseline_byte_exact": null,
+      "fields": {
+        "turn_kind": {
+          "expected": "statement",
+          "actual": "statement",
+          "correct": true
+        },
+        "intent": {
+          "expected": "create_transaction",
+          "actual": "create_transaction",
+          "correct": true
+        },
+        "amount_expr": {
+          "expected": "five ringgit",
+          "actual": "five ringgit",
+          "correct": true
+        },
+        "direction": {
+          "expected": "expense",
+          "actual": "expense",
+          "correct": true
+        },
+        "merchant_expr": {
+          "expected": null,
+          "actual": null,
+          "correct": true
+        },
+        "item_expr": {
+          "expected": "Parking",
+          "actual": null,
+          "correct": false
+        },
+        "category_hint": {
+          "expected": "Transport",
+          "actual": "Transport",
+          "correct": true
+        },
+        "date_expr": {
+          "expected": "today",
+          "actual": "today",
+          "correct": true
+        }
+      },
+      "error": null,
+      "raw_json": "{\"intent\":\"create_transaction\",\"amount_expr\":\"five ringgit\",\"direction\":\"expense\",\"category_hint\":\"Transport\",\"date_expr\":\"today\"}"
+    },
+    {
+      "id": "u082",
+      "text": "Give me a breakdown of expenses for last week.",
+      "expected_intent": "query_transactions",
+      "status": "validated",
+      "latency_ms": 1451,
+      "prompt_n": 513,
+      "cached_prompt_n": 488,
+      "prompt_ms": 812.172,
+      "predicted_n": 36,
+      "predicted_ms": 632.399,
+      "output_chars": 163,
+      "output_bytes": 163,
+      "output_sha256": "fad2e2327c5c1f039386d2848358b7a9b08b94ddcc38b2916bde971ba0cf3b01",
+      "baseline_byte_exact": null,
+      "fields": {
+        "turn_kind": {
+          "expected": "question",
+          "actual": "question",
+          "correct": true
+        },
+        "intent": {
+          "expected": "query_transactions",
+          "actual": "query_transactions",
+          "correct": true
+        },
+        "shape": {
+          "expected": "breakdown",
+          "actual": "breakdown",
+          "correct": true
+        },
+        "period_expr": {
+          "expected": "last week",
+          "actual": "last week",
+          "correct": true
+        },
+        "category_hint": {
+          "expected": null,
+          "actual": "Food & Drink",
+          "correct": false
+        },
+        "merchant_expr": {
+          "expected": null,
+          "actual": null,
+          "correct": true
+        }
+      },
+      "error": null,
+      "raw_json": "{\"intent\":\"query_transactions\",\"query\":{\"shape\":\"breakdown\",\"period_expr\":\"last week\",\"category_hint\":\"Food & Drink\",\"item_expr\":\"expenses\",\"direction\":\"expense\"}}"
+    },
+    {
+      "id": "u083",
+      "text": "The third one.",
+      "expected_intent": "answer_clarification",
+      "status": "validated",
+      "latency_ms": 1183,
+      "prompt_n": 516,
+      "cached_prompt_n": 488,
+      "prompt_ms": 828.144,
+      "predicted_n": 21,
+      "predicted_ms": 347.745,
+      "output_chars": 73,
+      "output_bytes": 73,
+      "output_sha256": "d7d6646d218ce1d714a4a4fc195d20e7459ad594b83b926ff53cc2e70e726da6",
+      "baseline_byte_exact": null,
+      "fields": {
+        "turn_kind": {
+          "expected": "answer",
+          "actual": "answer",
+          "correct": true
+        },
+        "intent": {
+          "expected": "answer_clarification",
+          "actual": "answer_clarification",
+          "correct": true
+        },
+        "choice_ordinal": {
+          "expected": 3,
+          "actual": 3,
+          "correct": true
+        },
+        "polarity": {
+          "expected": "neither",
+          "actual": "neither",
+          "correct": true
+        }
+      },
+      "error": null,
+      "raw_json": "{\"intent\":\"answer_clarification\",\"choice_ordinal\":3,\"polarity\":\"neither\"}"
+    },
+    {
+      "id": "u059",
+      "text": "What's the weather tomorrow?",
+      "expected_intent": "unsupported",
+      "status": "validated",
+      "latency_ms": 1068,
+      "prompt_n": 509,
+      "cached_prompt_n": 488,
+      "prompt_ms": 831.167,
+      "predicted_n": 14,
+      "predicted_ms": 230.139,
+      "output_chars": 64,
+      "output_bytes": 64,
+      "output_sha256": "e153bd883a540a89d6796275c8549cdf8efb15e38d60f784962430419bf13d6c",
+      "baseline_byte_exact": null,
+      "fields": {
+        "turn_kind": {
+          "expected": "question",
+          "actual": "question",
+          "correct": true
+        },
+        "intent": {
+          "expected": "unsupported",
+          "actual": "unsupported",
+          "correct": true
+        }
+      },
+      "error": null,
+      "raw_json": "{\"intent\":\"unsupported\",\"reason_hint\":\"not a financial request\"}"
+    },
+    {
+      "id": "u086",
+      "text": "The Grab one.",
+      "expected_intent": "answer_clarification",
+      "status": "validated",
+      "latency_ms": 1073,
+      "prompt_n": 516,
+      "cached_prompt_n": 488,
+      "prompt_ms": 826.204,
+      "predicted_n": 14,
+      "predicted_ms": 240.329,
+      "output_chars": 64,
+      "output_bytes": 64,
+      "output_sha256": "e153bd883a540a89d6796275c8549cdf8efb15e38d60f784962430419bf13d6c",
+      "baseline_byte_exact": null,
+      "fields": {
+        "turn_kind": {
+          "expected": "answer",
+          "actual": "statement",
+          "correct": false
+        },
+        "intent": {
+          "expected": "answer_clarification",
+          "actual": "unsupported",
+          "correct": false
+        },
+        "choice_ordinal": {
+          "expected": null,
+          "actual": null,
+          "correct": true
+        },
+        "answer_expr": {
+          "expected": "Grab",
+          "actual": null,
+          "correct": false
+        },
+        "polarity": {
+          "expected": "neither",
+          "actual": null,
+          "correct": false
+        }
+      },
+      "error": null,
+      "raw_json": "{\"intent\":\"unsupported\",\"reason_hint\":\"not a financial request\"}"
+    },
+    {
+      "id": "u047",
+      "text": "What did I spend at Grab yesterday?",
+      "expected_intent": "query_transactions",
+      "status": "validated",
+      "latency_ms": 1250,
+      "prompt_n": 511,
+      "cached_prompt_n": 488,
+      "prompt_ms": 839.612,
+      "predicted_n": 24,
+      "predicted_ms": 403.822,
+      "output_chars": 105,
+      "output_bytes": 105,
+      "output_sha256": "6b666af7816bb0eb764cb2e4c949c5d410dc4e59ebb75b635103823c073f38d6",
+      "baseline_byte_exact": null,
+      "fields": {
+        "turn_kind": {
+          "expected": "question",
+          "actual": "question",
+          "correct": true
+        },
+        "intent": {
+          "expected": "query_transactions",
+          "actual": "query_transactions",
+          "correct": true
+        },
+        "shape": {
+          "expected": "list",
+          "actual": "list",
+          "correct": true
+        },
+        "period_expr": {
+          "expected": "yesterday",
+          "actual": "yesterday",
+          "correct": true
+        },
+        "category_hint": {
+          "expected": null,
+          "actual": null,
+          "correct": true
+        },
+        "merchant_expr": {
+          "expected": "Grab",
+          "actual": "Grab",
+          "correct": true
+        }
+      },
+      "error": null,
+      "raw_json": "{\"intent\":\"query_transactions\",\"query\":{\"shape\":\"list\",\"period_expr\":\"yesterday\",\"merchant_expr\":\"Grab\"}}"
+    },
+    {
+      "id": "u032",
+      "text": "That parking expense was Transport.",
+      "expected_intent": "categorize_transaction",
+      "status": "validated",
+      "latency_ms": 1068,
+      "prompt_n": 509,
+      "cached_prompt_n": 488,
+      "prompt_ms": 828.061,
+      "predicted_n": 14,
+      "predicted_ms": 233.579,
+      "output_chars": 64,
+      "output_bytes": 64,
+      "output_sha256": "e153bd883a540a89d6796275c8549cdf8efb15e38d60f784962430419bf13d6c",
+      "baseline_byte_exact": null,
+      "fields": {
+        "turn_kind": {
+          "expected": "correction",
+          "actual": "statement",
+          "correct": false
+        },
+        "intent": {
+          "expected": "categorize_transaction",
+          "actual": "unsupported",
+          "correct": false
+        },
+        "merchant_expr": {
+          "expected": "parking",
+          "actual": null,
+          "correct": false
+        },
+        "category_hint": {
+          "expected": "Transport",
+          "actual": null,
+          "correct": false
+        },
+        "negated_category_hint": {
+          "expected": null,
+          "actual": null,
+          "correct": true
+        }
+      },
+      "error": null,
+      "raw_json": "{\"intent\":\"unsupported\",\"reason_hint\":\"not a financial request\"}"
+    },
+    {
+      "id": "u002",
+      "text": "Grab ride was eighteen ringgit.",
+      "expected_intent": "create_transaction",
+      "status": "validated",
+      "latency_ms": 1431,
+      "prompt_n": 510,
+      "cached_prompt_n": 488,
+      "prompt_ms": 835.596,
+      "predicted_n": 34,
+      "predicted_ms": 583.872,
+      "output_chars": 156,
+      "output_bytes": 156,
+      "output_sha256": "a950eb8f789c93642e896b92635265d4d5194a57644722f02c77ff758803b454",
+      "baseline_byte_exact": null,
+      "fields": {
+        "turn_kind": {
+          "expected": "statement",
+          "actual": "statement",
+          "correct": true
+        },
+        "intent": {
+          "expected": "create_transaction",
+          "actual": "create_transaction",
+          "correct": true
+        },
+        "amount_expr": {
+          "expected": "eighteen ringgit",
+          "actual": "eighteen ringgit",
+          "correct": true
+        },
+        "direction": {
+          "expected": "expense",
+          "actual": "expense",
+          "correct": true
+        },
+        "merchant_expr": {
+          "expected": "Grab",
+          "actual": "Grab",
+          "correct": true
+        },
+        "item_expr": {
+          "expected": "ride",
+          "actual": "ride",
+          "correct": true
+        },
+        "category_hint": {
+          "expected": "Transport",
+          "actual": "Transport",
+          "correct": true
+        },
+        "date_expr": {
+          "expected": null,
+          "actual": null,
+          "correct": true
+        }
+      },
+      "error": null,
+      "raw_json": "{\"intent\":\"create_transaction\",\"amount_expr\":\"eighteen ringgit\",\"direction\":\"expense\",\"merchant_expr\":\"Grab\",\"item_expr\":\"ride\",\"category_hint\":\"Transport\"}"
+    },
+    {
+      "id": "u056",
+      "text": "Yes.",
+      "expected_intent": "answer_clarification",
+      "status": "validated",
+      "latency_ms": 1097,
+      "prompt_n": 514,
+      "cached_prompt_n": 488,
+      "prompt_ms": 836.29,
+      "predicted_n": 15,
+      "predicted_ms": 254.173,
+      "output_chars": 53,
+      "output_bytes": 53,
+      "output_sha256": "4f760d56c17ead85d4cea714210e416766c328dcf68f7001bc629a138d6251a0",
+      "baseline_byte_exact": null,
+      "fields": {
+        "turn_kind": {
+          "expected": "answer",
+          "actual": "answer",
+          "correct": true
+        },
+        "intent": {
+          "expected": "answer_clarification",
+          "actual": "answer_clarification",
+          "correct": true
+        },
+        "choice_ordinal": {
+          "expected": null,
+          "actual": null,
+          "correct": true
+        },
+        "polarity": {
+          "expected": "affirm",
+          "actual": "affirm",
+          "correct": true
+        }
+      },
+      "error": null,
+      "raw_json": "{\"intent\":\"answer_clarification\",\"polarity\":\"affirm\"}"
+    },
+    {
+      "id": "u069",
+      "text": "What was my average grocery purchase this month?",
+      "expected_intent": "query_transactions",
+      "status": "clarification_needed",
+      "latency_ms": 1439,
+      "prompt_n": 512,
+      "cached_prompt_n": 488,
+      "prompt_ms": 833.538,
+      "predicted_n": 35,
+      "predicted_ms": 595.871,
+      "output_chars": 160,
+      "output_bytes": 160,
+      "output_sha256": "093d104fcb29719e828637bd41a72f9a138c1cd3c43208a3a4a28446c5c8d8c6",
+      "baseline_byte_exact": null,
+      "fields": {
+        "turn_kind": {
+          "expected": "question",
+          "actual": null,
+          "correct": false
+        },
+        "intent": {
+          "expected": "query_transactions",
+          "actual": null,
+          "correct": false
+        },
+        "shape": {
+          "expected": "average",
+          "actual": null,
+          "correct": false
+        },
+        "period_expr": {
+          "expected": "this month",
+          "actual": null,
+          "correct": false
+        },
+        "category_hint": {
+          "expected": "Groceries",
+          "actual": null,
+          "correct": false
+        },
+        "merchant_expr": {
+          "expected": null,
+          "actual": null,
+          "correct": true
+        }
+      },
+      "error": "an extracted expression is not a transcript substring",
+      "raw_json": "{\"intent\":\"query_transactions\",\"query\":{\"shape\":\"average\",\"period_expr\":\"this month\",\"category_hint\":\"Groceries\",\"item_expr\":\"groceries\",\"direction\":\"expense\"}}"
+    },
+    {
+      "id": "u078",
+      "text": "How much do I usually spend on coffee?",
+      "expected_intent": "query_transactions",
+      "status": "validated",
+      "latency_ms": 1428,
+      "prompt_n": 512,
+      "cached_prompt_n": 488,
+      "prompt_ms": 840.345,
+      "predicted_n": 34,
+      "predicted_ms": 581.071,
+      "output_chars": 157,
+      "output_bytes": 157,
+      "output_sha256": "659614b7d657a168115db3d7875979a88c4ec4bd06509bdee7319748dc480a49",
+      "baseline_byte_exact": null,
+      "fields": {
+        "turn_kind": {
+          "expected": "question",
+          "actual": "question",
+          "correct": true
+        },
+        "intent": {
+          "expected": "query_transactions",
+          "actual": "query_transactions",
+          "correct": true
+        },
+        "shape": {
+          "expected": "average",
+          "actual": "average",
+          "correct": true
+        },
+        "period_expr": {
+          "expected": null,
+          "actual": "usually",
+          "correct": false
+        },
+        "category_hint": {
+          "expected": "Food & Drink",
+          "actual": "Food & Drink",
+          "correct": true
+        },
+        "merchant_expr": {
+          "expected": null,
+          "actual": null,
+          "correct": true
+        }
+      },
+      "error": null,
+      "raw_json": "{\"intent\":\"query_transactions\",\"query\":{\"shape\":\"average\",\"period_expr\":\"usually\",\"category_hint\":\"Food & Drink\",\"item_expr\":\"coffee\",\"direction\":\"expense\"}}"
+    },
+    {
+      "id": "u016",
+      "text": "Paid forty ringgit for petrol.",
+      "expected_intent": "create_transaction",
+      "status": "clarification_needed",
+      "latency_ms": 1459,
+      "prompt_n": 510,
+      "cached_prompt_n": 488,
+      "prompt_ms": 832.253,
+      "predicted_n": 36,
+      "predicted_ms": 620.768,
+      "output_chars": 154,
+      "output_bytes": 154,
+      "output_sha256": "c21f44428631eb05c0fd689f3a4ef0d3e611c1e6e72305548db4abf643de1690",
+      "baseline_byte_exact": null,
+      "fields": {
+        "turn_kind": {
+          "expected": "statement",
+          "actual": null,
+          "correct": false
+        },
+        "intent": {
+          "expected": "create_transaction",
+          "actual": null,
+          "correct": false
+        },
+        "amount_expr": {
+          "expected": "forty ringgit",
+          "actual": null,
+          "correct": false
+        },
+        "direction": {
+          "expected": "expense",
+          "actual": null,
+          "correct": false
+        },
+        "merchant_expr": {
+          "expected": null,
+          "actual": null,
+          "correct": true
+        },
+        "item_expr": {
+          "expected": "petrol",
+          "actual": null,
+          "correct": false
+        },
+        "category_hint": {
+          "expected": "Transport",
+          "actual": null,
+          "correct": false
+        },
+        "date_expr": {
+          "expected": null,
+          "actual": null,
+          "correct": true
+        }
+      },
+      "error": "an extracted expression is not a transcript substring",
+      "raw_json": "{\"intent\":\"create_transaction\",\"amount_expr\":\"forty ringgit\",\"direction\":\"expense\",\"merchant_expr\":\"ZUS\",\"item_expr\":\"petrol\",\"category_hint\":\"Transport\"}"
+    },
+    {
+      "id": "u020",
+      "text": "The last one should be twenty ringgit.",
+      "expected_intent": "update_transaction",
+      "status": "validated",
+      "latency_ms": 1253,
+      "prompt_n": 512,
+      "cached_prompt_n": 488,
+      "prompt_ms": 855.78,
+      "predicted_n": 23,
+      "predicted_ms": 390.795,
+      "output_chars": 112,
+      "output_bytes": 112,
+      "output_sha256": "5cc1e09d02a821b12db76755b11273fdae564afcbbda1edeadfde62e0722b95c",
+      "baseline_byte_exact": null,
+      "fields": {
+        "turn_kind": {
+          "expected": "correction",
+          "actual": "correction",
+          "correct": true
+        },
+        "intent": {
+          "expected": "update_transaction",
+          "actual": "update_transaction",
+          "correct": true
+        },
+        "reference": {
+          "expected": "last_created",
+          "actual": "last_created",
+          "correct": true
+        },
+        "amount_expr": {
+          "expected": "twenty ringgit",
+          "actual": "twenty ringgit",
+          "correct": true
+        }
+      },
+      "error": null,
+      "raw_json": "{\"intent\":\"update_transaction\",\"target\":{\"reference\":\"last_created\"},\"changes\":{\"amount_expr\":\"twenty ringgit\"}}"
+    },
+    {
+      "id": "u006",
+      "text": "Shell petrol was seventy-five ringgit.",
+      "expected_intent": "create_transaction",
+      "status": "validated",
+      "latency_ms": 1499,
+      "prompt_n": 511,
+      "cached_prompt_n": 488,
+      "prompt_ms": 852.653,
+      "predicted_n": 37,
+      "predicted_ms": 640.062,
+      "output_chars": 163,
+      "output_bytes": 163,
+      "output_sha256": "e5fd271fdf8438cc653fd1d1b2b79645fad386ed41229435606511843023cd71",
+      "baseline_byte_exact": null,
+      "fields": {
+        "turn_kind": {
+          "expected": "statement",
+          "actual": "statement",
+          "correct": true
+        },
+        "intent": {
+          "expected": "create_transaction",
+          "actual": "create_transaction",
+          "correct": true
+        },
+        "amount_expr": {
+          "expected": "seventy-five ringgit",
+          "actual": "seventy-five ringgit",
+          "correct": true
+        },
+        "direction": {
+          "expected": "expense",
+          "actual": "expense",
+          "correct": true
+        },
+        "merchant_expr": {
+          "expected": "Shell",
+          "actual": "Shell",
+          "correct": true
+        },
+        "item_expr": {
+          "expected": "petrol",
+          "actual": "petrol",
+          "correct": true
+        },
+        "category_hint": {
+          "expected": "Transport",
+          "actual": "Transport",
+          "correct": true
+        },
+        "date_expr": {
+          "expected": null,
+          "actual": null,
+          "correct": true
+        }
+      },
+      "error": null,
+      "raw_json": "{\"intent\":\"create_transaction\",\"amount_expr\":\"seventy-five ringgit\",\"direction\":\"expense\",\"merchant_expr\":\"Shell\",\"item_expr\":\"petrol\",\"category_hint\":\"Transport\"}"
+    },
+    {
+      "id": "u077",
+      "text": "How many Grab transactions were there last month?",
+      "expected_intent": "query_transactions",
+      "status": "clarification_needed",
+      "latency_ms": 1428,
+      "prompt_n": 512,
+      "cached_prompt_n": 488,
+      "prompt_ms": 838.784,
+      "predicted_n": 33,
+      "predicted_ms": 582.594,
+      "output_chars": 153,
+      "output_bytes": 153,
+      "output_sha256": "f5b69c3a69ea60a7799fcc6da2da61251640c49b8de1b87d32a7b48554fd8a28",
+      "baseline_byte_exact": null,
+      "fields": {
+        "turn_kind": {
+          "expected": "question",
+          "actual": null,
+          "correct": false
+        },
+        "intent": {
+          "expected": "query_transactions",
+          "actual": null,
+          "correct": false
+        },
+        "shape": {
+          "expected": "count",
+          "actual": null,
+          "correct": false
+        },
+        "period_expr": {
+          "expected": "last month",
+          "actual": null,
+          "correct": false
+        },
+        "category_hint": {
+          "expected": null,
+          "actual": null,
+          "correct": true
+        },
+        "merchant_expr": {
+          "expected": "Grab",
+          "actual": null,
+          "correct": false
+        }
+      },
+      "error": "an extracted expression is not a transcript substring",
+      "raw_json": "{\"intent\":\"query_transactions\",\"query\":{\"shape\":\"count\",\"period_expr\":\"last month\",\"category_hint\":\"Transport\",\"item_expr\":\"ride\",\"direction\":\"expense\"}}"
+    },
+    {
+      "id": "u003",
+      "text": "Got paid one thousand eight hundred ringgit today.",
+      "expected_intent": "create_transaction",
+      "status": "validated",
+      "latency_ms": 1410,
+      "prompt_n": 513,
+      "cached_prompt_n": 488,
+      "prompt_ms": 835.767,
+      "predicted_n": 33,
+      "predicted_ms": 567.932,
+      "output_chars": 154,
+      "output_bytes": 154,
+      "output_sha256": "196329b0d67c1585c548f06a2e03ddb49e299947d83c28a7de71654ab7c81a89",
+      "baseline_byte_exact": null,
+      "fields": {
+        "turn_kind": {
+          "expected": "statement",
+          "actual": "statement",
+          "correct": true
+        },
+        "intent": {
+          "expected": "create_transaction",
+          "actual": "create_transaction",
+          "correct": true
+        },
+        "amount_expr": {
+          "expected": "one thousand eight hundred ringgit",
+          "actual": "one thousand eight hundred ringgit",
+          "correct": true
+        },
+        "direction": {
+          "expected": "income",
+          "actual": "income",
+          "correct": true
+        },
+        "merchant_expr": {
+          "expected": null,
+          "actual": null,
+          "correct": true
+        },
+        "item_expr": {
+          "expected": null,
+          "actual": null,
+          "correct": true
+        },
+        "category_hint": {
+          "expected": "Income",
+          "actual": "Food & Drink",
+          "correct": false
+        },
+        "date_expr": {
+          "expected": "today",
+          "actual": "today",
+          "correct": true
+        }
+      },
+      "error": null,
+      "raw_json": "{\"intent\":\"create_transaction\",\"amount_expr\":\"one thousand eight hundred ringgit\",\"direction\":\"income\",\"category_hint\":\"Food & Drink\",\"date_expr\":\"today\"}"
+    },
+    {
+      "id": "u051",
+      "text": "Remember Shell is transport.",
+      "expected_intent": "teach_memory",
+      "status": "validated",
+      "latency_ms": 1221,
+      "prompt_n": 508,
+      "cached_prompt_n": 488,
+      "prompt_ms": 846.071,
+      "predicted_n": 22,
+      "predicted_ms": 368.684,
+      "output_chars": 94,
+      "output_bytes": 94,
+      "output_sha256": "e4597cccd0690f99b02153ffb773327aa575c6c87e00f1fc5f073359e1b889bc",
+      "baseline_byte_exact": null,
+      "fields": {
+        "turn_kind": {
+          "expected": "statement",
+          "actual": "statement",
+          "correct": true
+        },
+        "intent": {
+          "expected": "teach_memory",
+          "actual": "teach_memory",
+          "correct": true
+        },
+        "kind": {
+          "expected": "merchant",
+          "actual": "merchant",
+          "correct": true
+        },
+        "surface_expr": {
+          "expected": "Shell",
+          "actual": "Shell",
+          "correct": true
+        },
+        "category_hint": {
+          "expected": "Transport",
+          "actual": "Transport",
+          "correct": true
+        }
+      },
+      "error": null,
+      "raw_json": "{\"intent\":\"teach_memory\",\"kind\":\"merchant\",\"surface_expr\":\"Shell\",\"category_hint\":\"Transport\"}"
+    },
+    {
+      "id": "u062",
+      "text": "Call my mother.",
+      "expected_intent": "unsupported",
+      "status": "validated",
+      "latency_ms": 1087,
+      "prompt_n": 507,
+      "cached_prompt_n": 488,
+      "prompt_ms": 852.514,
+      "predicted_n": 14,
+      "predicted_ms": 228.549,
+      "output_chars": 64,
+      "output_bytes": 64,
+      "output_sha256": "e153bd883a540a89d6796275c8549cdf8efb15e38d60f784962430419bf13d6c",
+      "baseline_byte_exact": null,
+      "fields": {
+        "turn_kind": {
+          "expected": "question",
+          "actual": "statement",
+          "correct": false
+        },
+        "intent": {
+          "expected": "unsupported",
+          "actual": "unsupported",
+          "correct": true
+        }
+      },
+      "error": null,
+      "raw_json": "{\"intent\":\"unsupported\",\"reason_hint\":\"not a financial request\"}"
+    },
+    {
+      "id": "u028",
+      "text": "That Shell purchase was Transport.",
+      "expected_intent": "categorize_transaction",
+      "status": "validated",
+      "latency_ms": 1532,
+      "prompt_n": 509,
+      "cached_prompt_n": 488,
+      "prompt_ms": 854.73,
+      "predicted_n": 39,
+      "predicted_ms": 671.318,
+      "output_chars": 175,
+      "output_bytes": 175,
+      "output_sha256": "c80b2e607f4f354da0a8f0debf418192c5c5e7a94a045372b217f96596ea5a96",
+      "baseline_byte_exact": null,
+      "fields": {
+        "turn_kind": {
+          "expected": "correction",
+          "actual": "correction",
+          "correct": true
+        },
+        "intent": {
+          "expected": "categorize_transaction",
+          "actual": "categorize_transaction",
+          "correct": true
+        },
+        "merchant_expr": {
+          "expected": "Shell",
+          "actual": "Shell",
+          "correct": true
+        },
+        "category_hint": {
+          "expected": "Transport",
+          "actual": "Transport",
+          "correct": true
+        },
+        "negated_category_hint": {
+          "expected": null,
+          "actual": "Food & Drink",
+          "correct": false
+        }
+      },
+      "error": null,
+      "raw_json": "{\"intent\":\"categorize_transaction\",\"target\":{\"reference\":\"descriptor\",\"merchant_expr\":\"Shell\"},\"category_hint\":\"Transport\",\"negated_category_hint\":\"Food & Drink\",\"teach\":true}"
+    },
+    {
+      "id": "u027",
+      "text": "The ZUS one should be Food & Drink.",
+      "expected_intent": "categorize_transaction",
+      "status": "validated",
+      "latency_ms": 1380,
+      "prompt_n": 513,
+      "cached_prompt_n": 488,
+      "prompt_ms": 856.928,
+      "predicted_n": 30,
+      "predicted_ms": 517.02,
+      "output_chars": 123,
+      "output_bytes": 123,
+      "output_sha256": "c7136dd278d8de0183cb36d43ac80701940189d10f7d8dc79226db09c4bdb304",
+      "baseline_byte_exact": null,
+      "fields": {
+        "turn_kind": {
+          "expected": "correction",
+          "actual": "statement",
+          "correct": false
+        },
+        "intent": {
+          "expected": "categorize_transaction",
+          "actual": "teach_memory",
+          "correct": false
+        },
+        "merchant_expr": {
+          "expected": "ZUS",
+          "actual": null,
+          "correct": false
+        },
+        "category_hint": {
+          "expected": "Food & Drink",
+          "actual": "Food & Drink",
+          "correct": true
+        },
+        "negated_category_hint": {
+          "expected": null,
+          "actual": null,
+          "correct": true
+        }
+      },
+      "error": null,
+      "raw_json": "{\"intent\":\"teach_memory\",\"kind\":\"merchant\",\"surface_expr\":\"ZUS\",\"category_hint\":\"Food & Drink\",\"subcategory_hint\":\"Coffee\"}"
+    },
+    {
+      "id": "u067",
+      "text": "How much did I spend on transport yesterday?",
+      "expected_intent": "query_transactions",
+      "status": "validated",
+      "latency_ms": 1435,
+      "prompt_n": 512,
+      "cached_prompt_n": 488,
+      "prompt_ms": 852.266,
+      "predicted_n": 33,
+      "predicted_ms": 576.438,
+      "output_chars": 155,
+      "output_bytes": 155,
+      "output_sha256": "02cb492654282f25ec41573a714fc9bc85feb29f1c799c282c526c5f2ebb9c84",
+      "baseline_byte_exact": null,
+      "fields": {
+        "turn_kind": {
+          "expected": "question",
+          "actual": "question",
+          "correct": true
+        },
+        "intent": {
+          "expected": "query_transactions",
+          "actual": "query_transactions",
+          "correct": true
+        },
+        "shape": {
+          "expected": "sum",
+          "actual": "sum",
+          "correct": true
+        },
+        "period_expr": {
+          "expected": "yesterday",
+          "actual": "yesterday",
+          "correct": true
+        },
+        "category_hint": {
+          "expected": "Transport",
+          "actual": "Transport",
+          "correct": true
+        },
+        "merchant_expr": {
+          "expected": null,
+          "actual": null,
+          "correct": true
+        }
+      },
+      "error": null,
+      "raw_json": "{\"intent\":\"query_transactions\",\"query\":{\"shape\":\"sum\",\"period_expr\":\"yesterday\",\"category_hint\":\"Transport\",\"item_expr\":\"transport\",\"direction\":\"expense\"}}"
+    },
+    {
+      "id": "u070",
+      "text": "What was my largest transaction last week?",
+      "expected_intent": "query_transactions",
+      "status": "validated",
+      "latency_ms": 1442,
+      "prompt_n": 511,
+      "cached_prompt_n": 488,
+      "prompt_ms": 840.271,
+      "predicted_n": 34,
+      "predicted_ms": 594.615,
+      "output_chars": 158,
+      "output_bytes": 158,
+      "output_sha256": "d8b9513cb69d438bd9a87d243a930724e07f6bc098c2c5382cefe84b86a91d4d",
+      "baseline_byte_exact": null,
+      "fields": {
+        "turn_kind": {
+          "expected": "question",
+          "actual": "question",
+          "correct": true
+        },
+        "intent": {
+          "expected": "query_transactions",
+          "actual": "query_transactions",
+          "correct": true
+        },
+        "shape": {
+          "expected": "max_transaction",
+          "actual": "max_transaction",
+          "correct": true
+        },
+        "period_expr": {
+          "expected": "last week",
+          "actual": "last week",
+          "correct": true
+        },
+        "category_hint": {
+          "expected": null,
+          "actual": "Food & Drink",
+          "correct": false
+        },
+        "merchant_expr": {
+          "expected": null,
+          "actual": null,
+          "correct": true
+        }
+      },
+      "error": null,
+      "raw_json": "{\"intent\":\"query_transactions\",\"query\":{\"shape\":\"max_transaction\",\"period_expr\":\"last week\",\"category_hint\":\"Food & Drink\",\"item_expr\":\"largest transaction\"}}"
+    },
+    {
+      "id": "u043",
+      "text": "What do I usually spend at McDonald's?",
+      "expected_intent": "query_transactions",
+      "status": "validated",
+      "latency_ms": 1530,
+      "prompt_n": 512,
+      "cached_prompt_n": 488,
+      "prompt_ms": 846.686,
+      "predicted_n": 39,
+      "predicted_ms": 674.727,
+      "output_chars": 167,
+      "output_bytes": 167,
+      "output_sha256": "1ec856a401d123d3d29c36a554d5461fa1f4ecb60a4b5f87d89feac77c885b68",
+      "baseline_byte_exact": null,
+      "fields": {
+        "turn_kind": {
+          "expected": "question",
+          "actual": "question",
+          "correct": true
+        },
+        "intent": {
+          "expected": "query_transactions",
+          "actual": "query_transactions",
+          "correct": true
+        },
+        "shape": {
+          "expected": "average",
+          "actual": "top_merchants",
+          "correct": false
+        },
+        "period_expr": {
+          "expected": null,
+          "actual": "usually",
+          "correct": false
+        },
+        "category_hint": {
+          "expected": null,
+          "actual": "Food & Drink",
+          "correct": false
+        },
+        "merchant_expr": {
+          "expected": "McDonald's",
+          "actual": null,
+          "correct": false
+        }
+      },
+      "error": null,
+      "raw_json": "{\"intent\":\"query_transactions\",\"query\":{\"shape\":\"top_merchants\",\"period_expr\":\"usually\",\"category_hint\":\"Food & Drink\",\"item_expr\":\"McDonald's\",\"direction\":\"expense\"}}"
+    },
+    {
+      "id": "u071",
+      "text": "Which categories did I spend the most on this year?",
+      "expected_intent": "query_transactions",
+      "status": "clarification_needed",
+      "latency_ms": 1516,
+      "prompt_n": 514,
+      "cached_prompt_n": 488,
+      "prompt_ms": 852.454,
+      "predicted_n": 36,
+      "predicted_ms": 657.17,
+      "output_chars": 164,
+      "output_bytes": 164,
+      "output_sha256": "0d3ce7a1b488f093491f824ea3169b72297dcc71571193d9cc47c08853d1a9ca",
+      "baseline_byte_exact": null,
+      "fields": {
+        "turn_kind": {
+          "expected": "question",
+          "actual": null,
+          "correct": false
+        },
+        "intent": {
+          "expected": "query_transactions",
+          "actual": null,
+          "correct": false
+        },
+        "shape": {
+          "expected": "top_categories",
+          "actual": null,
+          "correct": false
+        },
+        "period_expr": {
+          "expected": "this year",
+          "actual": null,
+          "correct": false
+        },
+        "category_hint": {
+          "expected": null,
+          "actual": null,
+          "correct": true
+        },
+        "merchant_expr": {
+          "expected": null,
+          "actual": null,
+          "correct": true
+        }
+      },
+      "error": "an extracted expression is not a transcript substring",
+      "raw_json": "{\"intent\":\"query_transactions\",\"query\":{\"shape\":\"top_categories\",\"period_expr\":\"this year\",\"category_hint\":\"Food & Drink\",\"item_expr\":\"food\",\"direction\":\"expense\"}}"
+    },
+    {
+      "id": "u048",
+      "text": "Break down my spending this month.",
+      "expected_intent": "query_transactions",
+      "status": "validated",
+      "latency_ms": 1556,
+      "prompt_n": 510,
+      "cached_prompt_n": 488,
+      "prompt_ms": 887.012,
+      "predicted_n": 37,
+      "predicted_ms": 662.442,
+      "output_chars": 164,
+      "output_bytes": 164,
+      "output_sha256": "f8fada6c48348be2eeb6afe0b2e2fbcaadde429a5af985c62b1b81e59464dea8",
+      "baseline_byte_exact": null,
+      "fields": {
+        "turn_kind": {
+          "expected": "question",
+          "actual": "question",
+          "correct": true
+        },
+        "intent": {
+          "expected": "query_transactions",
+          "actual": "query_transactions",
+          "correct": true
+        },
+        "shape": {
+          "expected": "breakdown",
+          "actual": "breakdown",
+          "correct": true
+        },
+        "period_expr": {
+          "expected": "this month",
+          "actual": "this month",
+          "correct": true
+        },
+        "category_hint": {
+          "expected": null,
+          "actual": "Food & Drink",
+          "correct": false
+        },
+        "merchant_expr": {
+          "expected": null,
+          "actual": null,
+          "correct": true
+        }
+      },
+      "error": null,
+      "raw_json": "{\"intent\":\"query_transactions\",\"query\":{\"shape\":\"breakdown\",\"period_expr\":\"this month\",\"category_hint\":\"Food & Drink\",\"item_expr\":\"spending\",\"direction\":\"expense\"}}"
+    },
+    {
+      "id": "u019",
+      "text": "No, make that twelve.",
+      "expected_intent": "update_transaction",
+      "status": "validated",
+      "latency_ms": 1084,
+      "prompt_n": 509,
+      "cached_prompt_n": 488,
+      "prompt_ms": 835.865,
+      "predicted_n": 14,
+      "predicted_ms": 241.059,
+      "output_chars": 51,
+      "output_bytes": 51,
+      "output_sha256": "d2607cb6c85d1dfdcfc294cb45694f63fd0894eb2c073716e37382db8c5fc25c",
+      "baseline_byte_exact": null,
+      "fields": {
+        "turn_kind": {
+          "expected": "correction",
+          "actual": "answer",
+          "correct": false
+        },
+        "intent": {
+          "expected": "update_transaction",
+          "actual": "answer_clarification",
+          "correct": false
+        },
+        "reference": {
+          "expected": "previous",
+          "actual": null,
+          "correct": false
+        },
+        "amount_expr": {
+          "expected": "twelve",
+          "actual": null,
+          "correct": false
+        }
+      },
+      "error": null,
+      "raw_json": "{\"intent\":\"answer_clarification\",\"polarity\":\"deny\"}"
+    },
+    {
+      "id": "u001",
+      "text": "Roti canai was eight ringgit just now.",
+      "expected_intent": "create_transaction",
+      "status": "validated",
+      "latency_ms": 1465,
+      "prompt_n": 514,
+      "cached_prompt_n": 488,
+      "prompt_ms": 860.758,
+      "predicted_n": 33,
+      "predicted_ms": 596.32,
+      "output_chars": 139,
+      "output_bytes": 139,
+      "output_sha256": "51c7fd2bda0f3287968df350f039fb0ac8d6671cb61ccba1385e51165e00ab4a",
+      "baseline_byte_exact": null,
+      "fields": {
+        "turn_kind": {
+          "expected": "statement",
+          "actual": "statement",
+          "correct": true
+        },
+        "intent": {
+          "expected": "create_transaction",
+          "actual": "create_transaction",
+          "correct": true
+        },
+        "amount_expr": {
+          "expected": "eight ringgit",
+          "actual": "eight ringgit",
+          "correct": true
+        },
+        "direction": {
+          "expected": "expense",
+          "actual": "expense",
+          "correct": true
+        },
+        "merchant_expr": {
+          "expected": null,
+          "actual": null,
+          "correct": true
+        },
+        "item_expr": {
+          "expected": "Roti canai",
+          "actual": "Roti canai",
+          "correct": true
+        },
+        "category_hint": {
+          "expected": "Food & Drink",
+          "actual": "Food & Drink",
+          "correct": true
+        },
+        "date_expr": {
+          "expected": "just now",
+          "actual": null,
+          "correct": false
+        }
+      },
+      "error": null,
+      "raw_json": "{\"intent\":\"create_transaction\",\"amount_expr\":\"eight ringgit\",\"direction\":\"expense\",\"item_expr\":\"Roti canai\",\"category_hint\":\"Food & Drink\"}"
+    },
+    {
+      "id": "u031",
+      "text": "The GrabFood one is Food & Drink.",
+      "expected_intent": "categorize_transaction",
+      "status": "validated",
+      "latency_ms": 1123,
+      "prompt_n": 512,
+      "cached_prompt_n": 488,
+      "prompt_ms": 864.527,
+      "predicted_n": 14,
+      "predicted_ms": 236.345,
+      "output_chars": 64,
+      "output_bytes": 64,
+      "output_sha256": "e153bd883a540a89d6796275c8549cdf8efb15e38d60f784962430419bf13d6c",
+      "baseline_byte_exact": null,
+      "fields": {
+        "turn_kind": {
+          "expected": "correction",
+          "actual": "statement",
+          "correct": false
+        },
+        "intent": {
+          "expected": "categorize_transaction",
+          "actual": "unsupported",
+          "correct": false
+        },
+        "merchant_expr": {
+          "expected": "GrabFood",
+          "actual": null,
+          "correct": false
+        },
+        "category_hint": {
+          "expected": "Food & Drink",
+          "actual": null,
+          "correct": false
+        },
+        "negated_category_hint": {
+          "expected": null,
+          "actual": null,
+          "correct": true
+        }
+      },
+      "error": null,
+      "raw_json": "{\"intent\":\"unsupported\",\"reason_hint\":\"not a financial request\"}"
+    },
+    {
+      "id": "u072",
+      "text": "Which merchants got most of my spending this month?",
+      "expected_intent": "query_transactions",
+      "status": "validated",
+      "latency_ms": 1346,
+      "prompt_n": 513,
+      "cached_prompt_n": 488,
+      "prompt_ms": 839.445,
+      "predicted_n": 27,
+      "predicted_ms": 499.15,
+      "output_chars": 119,
+      "output_bytes": 119,
+      "output_sha256": "b09475637c26637d086fa5fadbd88a9ac7bbf302190ac41e5f8756fb373d7810",
+      "baseline_byte_exact": null,
+      "fields": {
+        "turn_kind": {
+          "expected": "question",
+          "actual": "question",
+          "correct": true
+        },
+        "intent": {
+          "expected": "query_transactions",
+          "actual": "query_transactions",
+          "correct": true
+        },
+        "shape": {
+          "expected": "top_merchants",
+          "actual": "top_merchants",
+          "correct": true
+        },
+        "period_expr": {
+          "expected": "this month",
+          "actual": "this month",
+          "correct": true
+        },
+        "category_hint": {
+          "expected": null,
+          "actual": "Shopping",
+          "correct": false
+        },
+        "merchant_expr": {
+          "expected": null,
+          "actual": null,
+          "correct": true
+        }
+      },
+      "error": null,
+      "raw_json": "{\"intent\":\"query_transactions\",\"query\":{\"shape\":\"top_merchants\",\"period_expr\":\"this month\",\"category_hint\":\"Shopping\"}}"
+    },
+    {
+      "id": "u034",
+      "text": "Delete the Grab transaction.",
+      "expected_intent": "delete_transaction",
+      "status": "validated",
+      "latency_ms": 1269,
+      "prompt_n": 508,
+      "cached_prompt_n": 488,
+      "prompt_ms": 853.225,
+      "predicted_n": 23,
+      "predicted_ms": 409.677,
+      "output_chars": 116,
+      "output_bytes": 116,
+      "output_sha256": "45e445cd00705b80b274ee11ef17317b981cdf446333eb3cf2e6b014bf47dbcb",
+      "baseline_byte_exact": null,
+      "fields": {
+        "turn_kind": {
+          "expected": "statement",
+          "actual": "statement",
+          "correct": true
+        },
+        "intent": {
+          "expected": "delete_transaction",
+          "actual": "delete_transaction",
+          "correct": true
+        },
+        "merchant_expr": {
+          "expected": "Grab",
+          "actual": "Grab",
+          "correct": true
+        },
+        "reason_hint": {
+          "expected": null,
+          "actual": "duplicate",
+          "correct": false
+        }
+      },
+      "error": null,
+      "raw_json": "{\"intent\":\"delete_transaction\",\"target\":{\"reference\":\"descriptor\",\"merchant_expr\":\"Grab\"},\"reason_hint\":\"duplicate\"}"
+    },
+    {
+      "id": "u040",
+      "text": "Delete the GrabFood one.",
+      "expected_intent": "delete_transaction",
+      "status": "validated",
+      "latency_ms": 1283,
+      "prompt_n": 509,
+      "cached_prompt_n": 488,
+      "prompt_ms": 858.869,
+      "predicted_n": 24,
+      "predicted_ms": 417.913,
+      "output_chars": 120,
+      "output_bytes": 120,
+      "output_sha256": "13793455088ba0231c76da421a8a260d5ccce05804ebbfbb0e1e592e793fae4a",
+      "baseline_byte_exact": null,
+      "fields": {
+        "turn_kind": {
+          "expected": "statement",
+          "actual": "statement",
+          "correct": true
+        },
+        "intent": {
+          "expected": "delete_transaction",
+          "actual": "delete_transaction",
+          "correct": true
+        },
+        "merchant_expr": {
+          "expected": "GrabFood",
+          "actual": "GrabFood",
+          "correct": true
+        },
+        "reason_hint": {
+          "expected": null,
+          "actual": "duplicate",
+          "correct": false
+        }
+      },
+      "error": null,
+      "raw_json": "{\"intent\":\"delete_transaction\",\"target\":{\"reference\":\"descriptor\",\"merchant_expr\":\"GrabFood\"},\"reason_hint\":\"duplicate\"}"
+    },
+    {
+      "id": "u084",
+      "text": "Yes, the first one.",
+      "expected_intent": "answer_clarification",
+      "status": "validated",
+      "latency_ms": 1245,
+      "prompt_n": 518,
+      "cached_prompt_n": 488,
+      "prompt_ms": 873.628,
+      "predicted_n": 21,
+      "predicted_ms": 363.56,
+      "output_chars": 72,
+      "output_bytes": 72,
+      "output_sha256": "94027e226578e4300af3074dcc869b52cd4196c9378fe3b2e88aa714edcac554",
+      "baseline_byte_exact": null,
+      "fields": {
+        "turn_kind": {
+          "expected": "answer",
+          "actual": "answer",
+          "correct": true
+        },
+        "intent": {
+          "expected": "answer_clarification",
+          "actual": "answer_clarification",
+          "correct": true
+        },
+        "choice_ordinal": {
+          "expected": 1,
+          "actual": 1,
+          "correct": true
+        },
+        "polarity": {
+          "expected": "affirm",
+          "actual": "affirm",
+          "correct": true
+        }
+      },
+      "error": null,
+      "raw_json": "{\"intent\":\"answer_clarification\",\"choice_ordinal\":1,\"polarity\":\"affirm\"}"
+    },
+    {
+      "id": "u017",
+      "text": "Actually make that thirty-five.",
+      "expected_intent": "update_transaction",
+      "status": "validated",
+      "latency_ms": 1250,
+      "prompt_n": 507,
+      "cached_prompt_n": 490,
+      "prompt_ms": 860.0,
+      "predicted_n": 22,
+      "predicted_ms": 383.691,
+      "output_chars": 105,
+      "output_bytes": 105,
+      "output_sha256": "80669e8a54001822a1ffdffa42ec2595ee55390c25aaa6609e204add900a9057",
+      "baseline_byte_exact": null,
+      "fields": {
+        "turn_kind": {
+          "expected": "correction",
+          "actual": "correction",
+          "correct": true
+        },
+        "intent": {
+          "expected": "update_transaction",
+          "actual": "update_transaction",
+          "correct": true
+        },
+        "reference": {
+          "expected": "previous",
+          "actual": "previous",
+          "correct": true
+        },
+        "amount_expr": {
+          "expected": "thirty-five",
+          "actual": "thirty-five",
+          "correct": true
+        }
+      },
+      "error": null,
+      "raw_json": "{\"intent\":\"update_transaction\",\"target\":{\"reference\":\"previous\"},\"changes\":{\"amount_expr\":\"thirty-five\"}}"
+    },
+    {
+      "id": "u079",
+      "text": "Show me the biggest food expense this year.",
+      "expected_intent": "query_transactions",
+      "status": "validated",
+      "latency_ms": 1494,
+      "prompt_n": 510,
+      "cached_prompt_n": 490,
+      "prompt_ms": 853.725,
+      "predicted_n": 36,
+      "predicted_ms": 634.289,
+      "output_chars": 165,
+      "output_bytes": 165,
+      "output_sha256": "c3321a33096ed104dd57ad758db9b06ddc7226bdbfef201f1f93c19dc9f83f8f",
+      "baseline_byte_exact": null,
+      "fields": {
+        "turn_kind": {
+          "expected": "question",
+          "actual": "question",
+          "correct": true
+        },
+        "intent": {
+          "expected": "query_transactions",
+          "actual": "query_transactions",
+          "correct": true
+        },
+        "shape": {
+          "expected": "max_transaction",
+          "actual": "max_transaction",
+          "correct": true
+        },
+        "period_expr": {
+          "expected": "this year",
+          "actual": "this year",
+          "correct": true
+        },
+        "category_hint": {
+          "expected": "Food & Drink",
+          "actual": "Food & Drink",
+          "correct": true
+        },
+        "merchant_expr": {
+          "expected": null,
+          "actual": null,
+          "correct": true
+        }
+      },
+      "error": null,
+      "raw_json": "{\"intent\":\"query_transactions\",\"query\":{\"shape\":\"max_transaction\",\"period_expr\":\"this year\",\"category_hint\":\"Food & Drink\",\"item_expr\":\"food\",\"direction\":\"expense\"}}"
+    }
+  ]
+}

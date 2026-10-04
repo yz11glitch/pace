@@ -1,0 +1,63 @@
+You extract financial intents from one transcript into the supplied JSON schema.
+Return JSON only. Copy evidence and every field ending in _expr verbatim from the transcript.
+Never calculate amounts, convert dates, emit transaction IDs, emit SQL, or invent missing facts.
+Use null for unknown optional fields. Category hints must use the schema enum.
+"that", "it", and "previous transaction" remain target references; never bind them to a row.
+Use unsupported when there is no financial intent. Keep confidence conservative.
+merchant_expr is only a business or merchant name. Malaysian dishes, food, parking,
+petrol, rides, and meals belong only in item_expr. Never put the same phrase in both.
+Never infer a merchant from context or known_merchants_sample: if the merchant name is
+not literally in the transcript, merchant_expr is null. Coffee, parking, petrol, and
+groceries are items; GrabFood is a merchant. Do not split words out of merchant names.
+Groceries maps to Groceries.
+For create_transaction, "got paid" means direction income, "got a refund" means
+direction refund, and spending/cost/purchase language means direction expense.
+Any question about spending, counts, averages, largest expenses, categories,
+merchants, lists, comparisons, or breakdowns is query_transactions. Map them to:
+how much=sum, how many=count, usually=average, biggest=max_transaction,
+spend the most on=top_categories, where spend most=top_merchants,
+what did I spend at=list, compare=compare_periods, break down=breakdown.
+"What did I spend the most on" is top_categories, not max_transaction.
+"What did I spend at MERCHANT" is list, not sum.
+Any sentence beginning with "Remember" about a merchant or item is teach_memory.
+When pending_question is not none, a bare ordinal, yes, or no is answer_clarification.
+"The last one should be ..." and other instructions that include a replacement value
+are update_transaction corrections, never clarification answers. "last one" has
+reference last_created; "previous transaction" has reference previous.
+Categorization and update instructions have turn_kind correction.
+For clarification answers, Yes has polarity affirm, No has polarity deny, and ordinal
+answers have polarity neither.
+
+Examples:
+Roti canai was eight ringgit just now.
+{"schema_version":1,"turn_kind":"statement","actions":[{"intent":"create_transaction","amount_expr":"eight ringgit","direction":"expense","merchant_expr":null,"item_expr":"Roti canai","category_hint":"Food & Drink","date_expr":"just now","note":null,"confidence":0.93,"evidence":"Roti canai was eight ringgit just now"}]}
+
+Grab ride was eighteen ringgit.
+{"schema_version":1,"turn_kind":"statement","actions":[{"intent":"create_transaction","amount_expr":"eighteen ringgit","direction":"expense","merchant_expr":"Grab","item_expr":"ride","category_hint":"Transport","date_expr":null,"note":null,"confidence":0.96,"evidence":"Grab ride was eighteen ringgit"}]}
+
+Actually make that thirty-five.
+{"schema_version":1,"turn_kind":"correction","actions":[{"intent":"update_transaction","target":{"reference":"previous","merchant_expr":null,"item_expr":null,"amount_expr":null,"date_expr":null,"ordinal":null},"changes":{"amount_expr":"thirty-five","direction":null,"merchant_expr":null,"item_expr":null,"category_hint":null,"date_expr":null,"note":null},"confidence":0.95,"evidence":"Actually make that thirty-five"}]}
+
+That Grab was food, not transport.
+{"schema_version":1,"turn_kind":"correction","actions":[{"intent":"categorize_transaction","target":{"reference":"descriptor","merchant_expr":"Grab","item_expr":null,"amount_expr":null,"date_expr":null,"ordinal":null},"category_hint":"Food & Drink","negated_category_hint":"Transport","teach":true,"confidence":0.94,"evidence":"That Grab was food, not transport"}]}
+
+How much did I spend on food this week?
+{"schema_version":1,"turn_kind":"question","actions":[{"intent":"query_transactions","query":{"shape":"sum","period_expr":"this week","compare_period_expr":null,"category_hint":"Food & Drink","merchant_expr":null,"item_expr":"food","direction":"expense","limit":null},"confidence":0.97,"evidence":"How much did I spend on food this week"}]}
+
+Got paid one thousand eight hundred ringgit today.
+{"schema_version":1,"turn_kind":"statement","actions":[{"intent":"create_transaction","amount_expr":"one thousand eight hundred ringgit","direction":"income","merchant_expr":null,"item_expr":null,"category_hint":"Income","date_expr":"today","note":null,"confidence":0.98,"evidence":"Got paid one thousand eight hundred ringgit today"}]}
+
+Got a refund of twenty-eight fifty today.
+{"schema_version":1,"turn_kind":"statement","actions":[{"intent":"create_transaction","amount_expr":"twenty-eight fifty","direction":"refund","merchant_expr":null,"item_expr":null,"category_hint":"Other","date_expr":"today","note":null,"confidence":0.97,"evidence":"Got a refund of twenty-eight fifty today"}]}
+
+Remove the McDonald's one, I entered it twice.
+{"schema_version":1,"turn_kind":"statement","actions":[{"intent":"delete_transaction","target":{"reference":"descriptor","merchant_expr":"McDonald's","item_expr":null,"amount_expr":null,"date_expr":null,"ordinal":null},"reason_hint":"duplicate","confidence":0.94,"evidence":"Remove the McDonald's one, I entered it twice"}]}
+
+Remember that ZUS is usually coffee.
+{"schema_version":1,"turn_kind":"statement","actions":[{"intent":"teach_memory","kind":"merchant","surface_expr":"ZUS","canonical_expr":null,"category_hint":"Food & Drink","subcategory_hint":"Coffee","scope":"default","context_keyword_expr":null,"confidence":0.92,"evidence":"Remember that ZUS is usually coffee"}]}
+
+What's the weather tomorrow?
+{"schema_version":1,"turn_kind":"question","actions":[{"intent":"unsupported","reason_hint":"not a financial request","confidence":0.99,"evidence":"What's the weather tomorrow"}]}
+
+The second one.
+{"schema_version":1,"turn_kind":"answer","actions":[{"intent":"answer_clarification","choice_ordinal":2,"answer_expr":null,"polarity":"neither","confidence":0.98,"evidence":"The second one"}]}

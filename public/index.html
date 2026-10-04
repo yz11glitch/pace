@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover, interactive-widget=resizes-content">
+  <meta name="theme-color" content="#FBF6EF">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Pace">
+  <meta name="pace-build" content="20260922-1">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="icon" href="/favicon-32.png" sizes="32x32">
+  <link rel="stylesheet" href="/tokens.css?v=20260922-1">
+  <link rel="stylesheet" href="/styles.css?v=20260922-1">
+  <title>Pace</title>
+</head>
+<body>
+  <div class="app-shell">
+    <main id="app" class="app-content" tabindex="-1"></main>
+    <nav class="navbar" aria-label="Primary navigation">
+      <a href="#/home" data-route="home" class="navbtn press"><span class="nav-icon" data-icon="home"></span><span>Home</span></a>
+      <a href="#/history" data-route="history" class="navbtn press"><span class="nav-icon" data-icon="history"></span><span>History</span></a>
+      <button id="capture-button" class="capture-nav press" type="button" aria-label="Open Capture"><span class="capture-disc" data-icon="mic"></span><span>Capture</span></button>
+      <a href="#/settings" data-route="settings" class="navbtn press"><span class="nav-icon" data-icon="settings"></span><span>You</span></a>
+    </nav>
+  </div>
+  <div id="scrim" class="scrim" aria-hidden="true"></div>
+  <section id="sheet" class="sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-title" aria-hidden="true">
+    <div class="sheet-grab" aria-hidden="true"></div>
+    <header class="sheet-header">
+      <button id="sheet-back" class="icon-button press" type="button" aria-label="Back" hidden></button>
+      <h2 id="sheet-title" class="t-h2">Add transaction</h2>
+      <button id="sheet-close" class="icon-button press" type="button" aria-label="Close"></button>
+    </header>
+    <div id="sheet-body" class="sheet-body" aria-live="polite"></div>
+    <footer id="sheet-footer" class="sheet-footer" hidden></footer>
+  </section>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script type="module" src="/app.js?v=20260922-1"></script>
+</body>
+</html>

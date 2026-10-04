@@ -1,0 +1,41 @@
+{
+  "purpose": "quality gate before product-like burst latency benchmark",
+  "model": {
+    "source": "unsloth/Qwen3.5-2B-GGUF",
+    "source_revision": "f6d5376be1edb4d416d56da11e5397a961aca8ae",
+    "base_model": "Qwen/Qwen3.5-2B",
+    "file": "data/models/Qwen3.5-2B-Q4_K_M.gguf",
+    "quantization": "Q4_K_M",
+    "size_bytes": 1280835840,
+    "sha256": "aaf42c8b7c3cab2bf3d69c355048d4a0ee9973d48f16c731c0520ee914699223"
+  },
+  "corpus": {
+    "file": "bench/understanding/corpus.jsonl",
+    "cases": 86,
+    "sha256": "df67e31dc993a8ed1826bfa41c45b8310592a2dfd0e13c11a98f2f35111e08ae"
+  },
+  "benchmark": {
+    "result_file": "bench/understanding/results/qwen3.5-2b-q4_k_m-v2-quality.json",
+    "contract": "v2",
+    "passes": 1,
+    "cadence": "sustained",
+    "shuffle_seed": 20260917,
+    "temperature": 0.0,
+    "inference_seed": 0,
+    "request_n_predict": 192
+  },
+  "runtime": {
+    "llama_cpp": "0.4.0 build 10809 commit 5266f24da",
+    "context_size": 4096,
+    "parallel": 1,
+    "server_predict_cap": 256,
+    "reasoning": "off",
+    "spec_type": "none",
+    "grammar": "llama.cpp native /completion json_schema using compact schema v2"
+  },
+  "decision": {
+    "quality_gate_passed": false,
+    "product_like_burst_run_performed": false,
+    "reason": "Material regressions in intent, semantic validation, amount/date extraction, target reference, and financial-query shape."
+  }
+}

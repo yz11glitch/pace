@@ -1,0 +1,16 @@
+{"expect":{"description":"","merchant":""},"id":"note-000","note":""}
+{"expect":{"description":"","merchant":""},"id":"note-001","note":"   "}
+{"expect":{"description":"","merchant":"Chicken rice"},"id":"note-002","note":"Chicken rice"}
+{"expect":{"description":"Dinner with friends.","merchant":""},"id":"note-003","note":"Dinner with friends."}
+{"expect":{"description":"Is this right?","merchant":""},"id":"note-004","note":"Is this right?"}
+{"expect":{"description":"Wow!","merchant":""},"id":"note-005","note":"Wow!"}
+{"expect":{"description":"","merchant":"Grab ride"},"id":"note-006","note":"Grab ride"}
+{"expect":{"description":"","merchant":"Mamak"},"id":"note-007","note":"  Mamak  "}
+{"expect":{"description":"","merchant":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"},"id":"note-008","note":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"}
+{"expect":{"description":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx","merchant":""},"id":"note-009","note":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"}
+{"expect":{"description":"Nasi lemak.","merchant":""},"id":"note-010","note":"Nasi lemak. "}
+{"expect":{"description":"","merchant":"Teh tarik and roti canai at the mamak"},"id":"note-011","note":"Teh tarik and roti canai at the mamak"}
+{"expect":{"description":"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.","merchant":""},"id":"note-012","note":"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA."}
+{"expect":{"description":"Ends with ellipsis...","merchant":""},"id":"note-013","note":"Ends with ellipsis..."}
+{"expect":{"description":"Trailing space!","merchant":""},"id":"note-014","note":"Trailing space! "}
+{"expect":{"description":"","merchant":"Café Déjà Vu"},"id":"note-015","note":"Café Déjà Vu"}

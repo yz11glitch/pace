@@ -1,0 +1,17 @@
+{
+  "merchant_1": "McDonald's",
+  "merchant_2": "ZUS Coffee",
+  "merchant_3": "Grab",
+  "merchant_4": "Shopee",
+  "merchant_5": "Touch 'n Go",
+  "item_1": "roti canai",
+  "item_2": "flat white",
+  "merchant_priors": {
+    "merchant_1": {"amount_count": 20, "amount_min_minor": 600, "amount_max_minor": 4500, "amount_median_minor": 1850},
+    "merchant_2": {"amount_count": 20, "amount_min_minor": 700, "amount_max_minor": 4000, "amount_median_minor": 1600},
+    "merchant_3": {"amount_count": 20, "amount_min_minor": 500, "amount_max_minor": 12000, "amount_median_minor": 2500},
+    "merchant_4": {"amount_count": 20, "amount_min_minor": 500, "amount_max_minor": 30000, "amount_median_minor": 4500},
+    "merchant_5": {"amount_count": 20, "amount_min_minor": 500, "amount_max_minor": 15000, "amount_median_minor": 3000}
+  }
+}
+

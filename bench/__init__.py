@@ -1,0 +1,2 @@
+"""Disposable benchmark tooling namespace."""
+

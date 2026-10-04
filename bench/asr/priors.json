@@ -1,0 +1,49 @@
+{
+  "merchants": [
+    {
+      "name": "McDonald's",
+      "aliases": [],
+      "amount_count": 20,
+      "amount_min_minor": 600,
+      "amount_max_minor": 4500,
+      "amount_median_minor": 1850
+    },
+    {
+      "name": "ZUS Coffee",
+      "aliases": [],
+      "amount_count": 20,
+      "amount_min_minor": 700,
+      "amount_max_minor": 4000,
+      "amount_median_minor": 1600
+    },
+    {
+      "name": "Grab",
+      "aliases": [],
+      "amount_count": 20,
+      "amount_min_minor": 500,
+      "amount_max_minor": 12000,
+      "amount_median_minor": 2500
+    },
+    {
+      "name": "Shopee",
+      "aliases": [],
+      "amount_count": 20,
+      "amount_min_minor": 500,
+      "amount_max_minor": 30000,
+      "amount_median_minor": 4500
+    },
+    {
+      "name": "Touch 'n Go",
+      "aliases": [],
+      "amount_count": 20,
+      "amount_min_minor": 500,
+      "amount_max_minor": 15000,
+      "amount_median_minor": 3000
+    }
+  ],
+  "global": {
+    "amount_count": 0,
+    "amount_p99_minor": null
+  },
+  "categories": []
+}
