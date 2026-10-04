@@ -15,10 +15,10 @@ Transcription runs on the Mac, not on the phone.
 
 A local Qwen3.5-4B Q4_K_M model is served by llama.cpp's `llama-server`.
 `noted/llm.py` constrains proposals with a JSON schema.
-The schema represents financial intents and verbatim evidence spans.
+The schema represents financial intents and cited evidence spans.
 Model output is a proposal; it is not SQL and contains no ledger row IDs.
 
-`_validate_verbatim_spans` requires cited expressions to appear in the transcript.
+`_validate_verbatim_spans` requires cited expressions to match transcript substrings after text normalization.
 Hallucinated merchant, amount or date spans are rejected.
 Intent coherence is checked separately from JSON structure.
 Amount and date resolution use deterministic code.
@@ -33,9 +33,15 @@ Models and personal runtime data are excluded from the snapshot.
 For phone access, the Mac must be reachable over a private network.
 The repository does not supply a remote hosting deployment.
 
+Run these commands from the repository root. Start the model server in one terminal,
+then start the API in a second terminal.
+
 ```sh
 uv sync
 npm run start:llm
+```
+
+```sh
 npm run start
 ```
 

@@ -11,10 +11,13 @@ This is an active-development sanitized snapshot.
 Open `Pace.xcodeproj` in Xcode 26 or later. Device builds need your own
 bundle identifier prefix and signing team in `Config/Pace.xcconfig`.
 
+From the repository root:
+
 ```sh
+cd native
 xcodebuild build -project Pace.xcodeproj -scheme Pace -configuration Release -destination 'generic/platform=iOS Simulator' CODE_SIGNING_ALLOWED=NO
-cd Packages/PaceCore && swift test
-cd ../PaceStore && swift test
+(cd Packages/PaceCore && swift test)
+(cd Packages/PaceStore && swift test)
 ```
 
 For UI tests, use an installed iOS 26 simulator, such as iPhone 17 Pro.

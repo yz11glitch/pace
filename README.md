@@ -4,6 +4,8 @@ A local-first personal-finance app for iPhone, built with SwiftUI. Pace keeps an
 
 > **Active development · sanitized public snapshot.** Pace is a personal project I use daily. Development happens in a private repository; this is a reviewed snapshot of that code (as of 3 October 2026) with personal data, signing settings and internal notes removed. It is not on the App Store or TestFlight and has no server component.
 
+Integer-money ledger rules, deterministic capture and shared Swift/Python fixtures make the core behavior inspectable.
+
 The native app runs independently. The separate Mac-hosted reference engine included below has a local API server.
 
 <table>
@@ -46,7 +48,7 @@ flowchart TD
 
 ## How capture works
 
-1. Vision `RecognizeTextRequest` recognizes screenshot text accurately with en-US and ms-MY language hints.
+1. Vision `RecognizeTextRequest` uses accurate recognition mode for screenshot text with en-US and ms-MY language hints.
 2. Deterministic extraction in PaceCore uses layout, typed spans, labels and relations to resolve amount, merchant, date/time and reference.
 3. **Category:** merchant memory comes first. Without a match, Apple's on-device Foundation Models suggests one of Pace's fixed categories through guided generation (`@Generable`, `@Guide(.anyOf:)`, greedy sampling). If unavailable or unsuccessful, it falls back to **Other**.
 4. A draft goes to review, or to **Needs you** when values are missing or ambiguous. Qualified complete captures can save under the explicit trust policy; safeguards still apply.
@@ -62,7 +64,7 @@ Before the native app, natural-language capture was prototyped as a **Mac-hosted
 - FastAPI in [`noted/api.py`](noted/api.py).
 - `mlx-whisper` large-v3-turbo transcription on the Mac.
 - Local Qwen3.5-4B Q4_K_M via llama.cpp's `llama-server`, constrained to a JSON schema.
-- Proposals rejected unless their cited spans appear verbatim in the transcript (`_validate_verbatim_spans` in [`noted/llm.py`](noted/llm.py)).
+- Proposals rejected unless their cited spans match transcript substrings after text normalization (`_validate_verbatim_spans` in [`noted/llm.py`](noted/llm.py)).
 - Deterministic amount/date resolution; uncertainty returns `needs_clarification` and nothing is saved.
 
 The browser client in `public/` recorded audio; transcription ran on the Mac. **The iOS app does not use this engine and has no voice input.** Today the engine is the reference oracle: [`export_golden_fixtures.py`](scripts/export_golden_fixtures.py) generates shared JSONL data, and Swift tests must match it exactly. `noted` is the engine's original codename.
@@ -84,15 +86,15 @@ Fresh staging validation on 4 October 2026:
 
 | Suite | Framework | Result | Command |
 |---|---|---|---|
-| PaceCore | Swift Testing | 114 passed; 1 intentionally disabled | `cd native/Packages/PaceCore && swift test` |
+| PaceCore | Swift Testing | 113 passed, 1 skipped; 114 total | `cd native/Packages/PaceCore && swift test` |
 | PaceStore | Swift Testing | 118 passed | `cd native/Packages/PaceStore && swift test` |
-| Native UI | XCTest | 38 passed on iPhone 17 Pro (37 existing + 1 showcase) | `xcodebuild test -project native/Pace.xcodeproj -scheme Pace -destination 'platform=iOS Simulator,name=<device>'` |
+| Native UI | XCTest | 38/38 passed on iPhone 17 Pro (37 existing + 1 showcase) | `xcodebuild test -project native/Pace.xcodeproj -scheme Pace -destination 'platform=iOS Simulator,name=<device>'` |
 | Reference engine | pytest | 281 passed | `uv sync && uv run pytest -q` |
 | Browser domain | Node test runner | 42 passed | `npm run check` |
 
 The Release simulator build passed with signing disabled. Regenerating the Python and JavaScript golden fixtures left the tracked data unchanged; Swift parity tests compare those shared fixtures exactly. Unit tests use temporary stores and model doubles, not live ASR/model calls.
 
-The complete UI suite passed on the 402-point iPhone 17 Pro simulator. An additional two-test run on the 440-point iPhone 17 Pro Max passed benchmark navigation but failed `testWorstCaseScreenshotMatrix` after tapping the missing-amount row. The larger-screen navigation failure remains under investigation; it is not counted as a pass. Public-only scrolling fixes preserve the original assertions and do not change app behavior.
+UI validation passes on the primary iPhone 17 Pro target (38/38). One additional Pro Max matrix navigation case remains under investigation and may be test-harness related; the cause is not confirmed. In that two-test Pro Max run, benchmark navigation passed and the matrix case failed after tapping the missing-amount row.
 
 ## Design decisions
 
